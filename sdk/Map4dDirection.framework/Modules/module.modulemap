@@ -1,0 +1,11 @@
+framework module Map4dDirection {
+  umbrella header "Map4dDirection.h"
+
+  export *
+  module * { export * }
+}
+
+module Map4dDirection.Swift {
+    header "Map4dDirection-Swift.h"
+    requires objc
+}
