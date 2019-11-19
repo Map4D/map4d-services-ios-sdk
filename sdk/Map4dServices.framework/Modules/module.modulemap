@@ -1,0 +1,11 @@
+framework module Map4dServices {
+  umbrella header "Map4dServices.h"
+
+  export *
+  module * { export * }
+}
+
+module Map4dServices.Swift {
+    header "Map4dServices-Swift.h"
+    requires objc
+}
