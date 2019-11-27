@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name              = 'Map4dServices'
-    s.version           = '0.0.1'
+    s.version           = '0.0.2'
     s.summary           = 'Map4D Services SDK'
     s.homepage          = 'http://map4d.vn'
 
@@ -10,6 +10,8 @@ Pod::Spec.new do |s|
     s.platform          = :ios
     s.source = { :git => 'https://github.com/map4d/map4d-services-ios-sdk.git', :tag => s.version.to_s }
 
-    s.ios.deployment_target = '9.0'
+    s.ios.deployment_target = '10.0'
+    s.dependency 'Alamofire', '~> 4.7'
+    s.dependency 'AlamofireMapper'
     s.ios.vendored_frameworks = 'sdk/Map4dServices.framework'
 end
