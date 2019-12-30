@@ -202,14 +202,17 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+@class MFDirectionOptions;
 @class MFRouteOptions;
 @class MFRoute;
 @protocol MFServiceError;
 @protocol MFServiceTask;
-@class MFDirectionOptions;
 
 SWIFT_CLASS("_TtC13Map4dServices11MFDirection")
 @interface MFDirection : NSObject
+@property (nonatomic, strong) MFDirectionOptions * _Nullable options;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MFDirection * _Nonnull shared;)
++ (MFDirection * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 - (id <MFServiceTask> _Nullable)calculateWithOptions:(MFRouteOptions * _Nonnull)options completion:(void (^ _Nonnull)(NSArray<MFRoute *> * _Nullable, id <MFServiceError> _Nullable))completion;
 - (nonnull instancetype)initWithOptions:(MFDirectionOptions * _Nullable)options OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -220,62 +223,28 @@ SWIFT_CLASS("_TtC13Map4dServices11MFDirection")
 SWIFT_CLASS("_TtC13Map4dServices18MFDirectionOptions")
 @interface MFDirectionOptions : NSObject
 @property (nonatomic, copy) NSString * _Nullable accessKey;
+@property (nonatomic, copy) NSString * _Nullable language;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 typedef SWIFT_ENUM(NSInteger, MFManeuver, closed) {
   MFManeuverNone = 0,
-  MFManeuverDepart = 1,
-  MFManeuverDepartLeft = 2,
-  MFManeuverDepartRight = 3,
-  MFManeuverTurnStraight = 4,
-  MFManeuverEndOfRoadLeft = 5,
-  MFManeuverEndOfRoadRight = 6,
-  MFManeuverNewNameSlightLeft = 7,
-  MFManeuverNewNameSlightRight = 8,
-  MFManeuverNewNameLeft = 9,
-  MFManeuverNewNameRight = 10,
-  MFManeuverNewNameStraight = 11,
-  MFManeuverForkSlightRight = 12,
-  MFManeuverForkSlightLeft = 13,
-  MFManeuverContinueLeft = 14,
-  MFManeuverContinueRight = 15,
-  MFManeuverRoundAboutSlightLeft = 16,
-  MFManeuverRoundAboutSlightRight = 17,
-  MFManeuverOnRampSlightLeft = 18,
-  MFManeuverOnRampSlightRight = 19,
-  MFManeuverOnRampLeft = 20,
-  MFManeuverOnRampRight = 21,
-  MFManeuverMergeSlightRight = 22,
-  MFManeuverMergeSlightLeft = 23,
-  MFManeuverContinueSlightRight = 24,
-  MFManeuverContinueSlightLeft = 25,
-  MFManeuverArriveRight = 26,
-  MFManeuverArriveLeft = 27,
-  MFManeuverOffRampSlightLeft = 28,
-  MFManeuverOffRampSlightRight = 29,
-  MFManeuverRotarySlightLeft = 30,
-  MFManeuverRotarySlightRight = 31,
-  MFManeuverRoundAboutStraight = 32,
-  MFManeuverArrive = 33,
-  MFManeuverStraight = 34,
-  MFManeuverRoundAboutRight = 35,
-  MFManeuverRoundAboutLeft = 36,
-  MFManeuverTurnSlightRight = 37,
-  MFManeuverTurnSlightLeft = 38,
-  MFManeuverKeepLeft = 39,
-  MFManeuverKeepRight = 40,
-  MFManeuverTurnLeft = 41,
-  MFManeuverTurnRight = 42,
-  MFManeuverTurnSharpRight = 43,
-  MFManeuverTurnSharpLeft = 44,
-  MFManeuverFinish = 45,
+  MFManeuverKeepLeft = 1,
+  MFManeuverKeepRight = 2,
+  MFManeuverTurnSharpRight = 3,
+  MFManeuverTurnSharpLeft = 4,
+  MFManeuverTurnLeft = 5,
+  MFManeuverTurnRight = 6,
+  MFManeuverTurnSlightLeft = 7,
+  MFManeuverTurnSlightRight = 8,
+  MFManeuverContinueOnStreet = 9,
+  MFManeuverFinish = 10,
+  MFManeuverRoundaboutLeft = 11,
+  MFManeuverRoundaboutRight = 12,
 };
 
 @class MFRouteLeg;
 @class MFRouteInfo;
-@class MFWaypoint;
-enum MFTravelMode : NSInteger;
 
 SWIFT_CLASS("_TtC13Map4dServices7MFRoute")
 @interface MFRoute : NSObject
@@ -285,8 +254,7 @@ SWIFT_CLASS("_TtC13Map4dServices7MFRoute")
 @property (nonatomic, strong) MFRouteInfo * _Nonnull distance;
 @property (nonatomic, strong) MFRouteInfo * _Nonnull duration;
 @property (nonatomic, copy) NSArray<NSValue *> * _Nonnull snappedCoordinates;
-@property (nonatomic, copy) NSArray<MFWaypoint *> * _Nonnull waypoints;
-@property (nonatomic) enum MFTravelMode mode;
+@property (nonatomic, strong) MFRouteOptions * _Nullable options;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -323,6 +291,17 @@ SWIFT_CLASS_NAMED("Leg")
 @interface MFRoute (SWIFT_EXTENSION(Map4dServices))
 @end
 
+typedef SWIFT_ENUM_NAMED(NSInteger, MFRouteWeighting, "Weighting", closed) {
+  MFRouteWeightingShortest = 0,
+  MFRouteWeightingFastest = 1,
+  MFRouteWeightingBalance = 2,
+};
+
+
+@interface MFRoute (SWIFT_EXTENSION(Map4dServices))
+@end
+
+enum MFTravelMode : NSInteger;
 
 SWIFT_CLASS_NAMED("Step")
 @interface MFRouteStep : NSObject
@@ -339,10 +318,16 @@ SWIFT_CLASS_NAMED("Step")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class MFWaypoint;
 
 SWIFT_CLASS("_TtC13Map4dServices14MFRouteOptions")
 @interface MFRouteOptions : NSObject
+@property (nonatomic, copy) NSArray<MFWaypoint *> * _Nonnull waypoints;
+@property (nonatomic) enum MFTravelMode mode;
+@property (nonatomic) enum MFRouteWeighting weighting;
+@property (nonatomic, copy) NSString * _Nonnull language;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (MFRouteOptions * _Nonnull)clone SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -371,6 +356,7 @@ SWIFT_CLASS("_TtC13Map4dServices10MFWaypoint")
 @property (nonatomic, copy) NSString * _Nullable name;
 - (nonnull instancetype)initWithCoordinate:(CLLocationCoordinate2D)coordinate name:(NSString * _Nullable)name OBJC_DESIGNATED_INITIALIZER;
 @property (nonatomic, readonly, copy) NSString * _Nonnull description;
+- (MFWaypoint * _Nonnull)clone SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -591,14 +577,17 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+@class MFDirectionOptions;
 @class MFRouteOptions;
 @class MFRoute;
 @protocol MFServiceError;
 @protocol MFServiceTask;
-@class MFDirectionOptions;
 
 SWIFT_CLASS("_TtC13Map4dServices11MFDirection")
 @interface MFDirection : NSObject
+@property (nonatomic, strong) MFDirectionOptions * _Nullable options;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MFDirection * _Nonnull shared;)
++ (MFDirection * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 - (id <MFServiceTask> _Nullable)calculateWithOptions:(MFRouteOptions * _Nonnull)options completion:(void (^ _Nonnull)(NSArray<MFRoute *> * _Nullable, id <MFServiceError> _Nullable))completion;
 - (nonnull instancetype)initWithOptions:(MFDirectionOptions * _Nullable)options OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -609,62 +598,28 @@ SWIFT_CLASS("_TtC13Map4dServices11MFDirection")
 SWIFT_CLASS("_TtC13Map4dServices18MFDirectionOptions")
 @interface MFDirectionOptions : NSObject
 @property (nonatomic, copy) NSString * _Nullable accessKey;
+@property (nonatomic, copy) NSString * _Nullable language;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 typedef SWIFT_ENUM(NSInteger, MFManeuver, closed) {
   MFManeuverNone = 0,
-  MFManeuverDepart = 1,
-  MFManeuverDepartLeft = 2,
-  MFManeuverDepartRight = 3,
-  MFManeuverTurnStraight = 4,
-  MFManeuverEndOfRoadLeft = 5,
-  MFManeuverEndOfRoadRight = 6,
-  MFManeuverNewNameSlightLeft = 7,
-  MFManeuverNewNameSlightRight = 8,
-  MFManeuverNewNameLeft = 9,
-  MFManeuverNewNameRight = 10,
-  MFManeuverNewNameStraight = 11,
-  MFManeuverForkSlightRight = 12,
-  MFManeuverForkSlightLeft = 13,
-  MFManeuverContinueLeft = 14,
-  MFManeuverContinueRight = 15,
-  MFManeuverRoundAboutSlightLeft = 16,
-  MFManeuverRoundAboutSlightRight = 17,
-  MFManeuverOnRampSlightLeft = 18,
-  MFManeuverOnRampSlightRight = 19,
-  MFManeuverOnRampLeft = 20,
-  MFManeuverOnRampRight = 21,
-  MFManeuverMergeSlightRight = 22,
-  MFManeuverMergeSlightLeft = 23,
-  MFManeuverContinueSlightRight = 24,
-  MFManeuverContinueSlightLeft = 25,
-  MFManeuverArriveRight = 26,
-  MFManeuverArriveLeft = 27,
-  MFManeuverOffRampSlightLeft = 28,
-  MFManeuverOffRampSlightRight = 29,
-  MFManeuverRotarySlightLeft = 30,
-  MFManeuverRotarySlightRight = 31,
-  MFManeuverRoundAboutStraight = 32,
-  MFManeuverArrive = 33,
-  MFManeuverStraight = 34,
-  MFManeuverRoundAboutRight = 35,
-  MFManeuverRoundAboutLeft = 36,
-  MFManeuverTurnSlightRight = 37,
-  MFManeuverTurnSlightLeft = 38,
-  MFManeuverKeepLeft = 39,
-  MFManeuverKeepRight = 40,
-  MFManeuverTurnLeft = 41,
-  MFManeuverTurnRight = 42,
-  MFManeuverTurnSharpRight = 43,
-  MFManeuverTurnSharpLeft = 44,
-  MFManeuverFinish = 45,
+  MFManeuverKeepLeft = 1,
+  MFManeuverKeepRight = 2,
+  MFManeuverTurnSharpRight = 3,
+  MFManeuverTurnSharpLeft = 4,
+  MFManeuverTurnLeft = 5,
+  MFManeuverTurnRight = 6,
+  MFManeuverTurnSlightLeft = 7,
+  MFManeuverTurnSlightRight = 8,
+  MFManeuverContinueOnStreet = 9,
+  MFManeuverFinish = 10,
+  MFManeuverRoundaboutLeft = 11,
+  MFManeuverRoundaboutRight = 12,
 };
 
 @class MFRouteLeg;
 @class MFRouteInfo;
-@class MFWaypoint;
-enum MFTravelMode : NSInteger;
 
 SWIFT_CLASS("_TtC13Map4dServices7MFRoute")
 @interface MFRoute : NSObject
@@ -674,8 +629,7 @@ SWIFT_CLASS("_TtC13Map4dServices7MFRoute")
 @property (nonatomic, strong) MFRouteInfo * _Nonnull distance;
 @property (nonatomic, strong) MFRouteInfo * _Nonnull duration;
 @property (nonatomic, copy) NSArray<NSValue *> * _Nonnull snappedCoordinates;
-@property (nonatomic, copy) NSArray<MFWaypoint *> * _Nonnull waypoints;
-@property (nonatomic) enum MFTravelMode mode;
+@property (nonatomic, strong) MFRouteOptions * _Nullable options;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -712,6 +666,17 @@ SWIFT_CLASS_NAMED("Leg")
 @interface MFRoute (SWIFT_EXTENSION(Map4dServices))
 @end
 
+typedef SWIFT_ENUM_NAMED(NSInteger, MFRouteWeighting, "Weighting", closed) {
+  MFRouteWeightingShortest = 0,
+  MFRouteWeightingFastest = 1,
+  MFRouteWeightingBalance = 2,
+};
+
+
+@interface MFRoute (SWIFT_EXTENSION(Map4dServices))
+@end
+
+enum MFTravelMode : NSInteger;
 
 SWIFT_CLASS_NAMED("Step")
 @interface MFRouteStep : NSObject
@@ -728,10 +693,16 @@ SWIFT_CLASS_NAMED("Step")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class MFWaypoint;
 
 SWIFT_CLASS("_TtC13Map4dServices14MFRouteOptions")
 @interface MFRouteOptions : NSObject
+@property (nonatomic, copy) NSArray<MFWaypoint *> * _Nonnull waypoints;
+@property (nonatomic) enum MFTravelMode mode;
+@property (nonatomic) enum MFRouteWeighting weighting;
+@property (nonatomic, copy) NSString * _Nonnull language;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (MFRouteOptions * _Nonnull)clone SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -760,6 +731,7 @@ SWIFT_CLASS("_TtC13Map4dServices10MFWaypoint")
 @property (nonatomic, copy) NSString * _Nullable name;
 - (nonnull instancetype)initWithCoordinate:(CLLocationCoordinate2D)coordinate name:(NSString * _Nullable)name OBJC_DESIGNATED_INITIALIZER;
 @property (nonatomic, readonly, copy) NSString * _Nonnull description;
+- (MFWaypoint * _Nonnull)clone SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -979,14 +951,17 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+@class MFDirectionOptions;
 @class MFRouteOptions;
 @class MFRoute;
 @protocol MFServiceError;
 @protocol MFServiceTask;
-@class MFDirectionOptions;
 
 SWIFT_CLASS("_TtC13Map4dServices11MFDirection")
 @interface MFDirection : NSObject
+@property (nonatomic, strong) MFDirectionOptions * _Nullable options;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MFDirection * _Nonnull shared;)
++ (MFDirection * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 - (id <MFServiceTask> _Nullable)calculateWithOptions:(MFRouteOptions * _Nonnull)options completion:(void (^ _Nonnull)(NSArray<MFRoute *> * _Nullable, id <MFServiceError> _Nullable))completion;
 - (nonnull instancetype)initWithOptions:(MFDirectionOptions * _Nullable)options OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -997,62 +972,28 @@ SWIFT_CLASS("_TtC13Map4dServices11MFDirection")
 SWIFT_CLASS("_TtC13Map4dServices18MFDirectionOptions")
 @interface MFDirectionOptions : NSObject
 @property (nonatomic, copy) NSString * _Nullable accessKey;
+@property (nonatomic, copy) NSString * _Nullable language;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 typedef SWIFT_ENUM(NSInteger, MFManeuver, closed) {
   MFManeuverNone = 0,
-  MFManeuverDepart = 1,
-  MFManeuverDepartLeft = 2,
-  MFManeuverDepartRight = 3,
-  MFManeuverTurnStraight = 4,
-  MFManeuverEndOfRoadLeft = 5,
-  MFManeuverEndOfRoadRight = 6,
-  MFManeuverNewNameSlightLeft = 7,
-  MFManeuverNewNameSlightRight = 8,
-  MFManeuverNewNameLeft = 9,
-  MFManeuverNewNameRight = 10,
-  MFManeuverNewNameStraight = 11,
-  MFManeuverForkSlightRight = 12,
-  MFManeuverForkSlightLeft = 13,
-  MFManeuverContinueLeft = 14,
-  MFManeuverContinueRight = 15,
-  MFManeuverRoundAboutSlightLeft = 16,
-  MFManeuverRoundAboutSlightRight = 17,
-  MFManeuverOnRampSlightLeft = 18,
-  MFManeuverOnRampSlightRight = 19,
-  MFManeuverOnRampLeft = 20,
-  MFManeuverOnRampRight = 21,
-  MFManeuverMergeSlightRight = 22,
-  MFManeuverMergeSlightLeft = 23,
-  MFManeuverContinueSlightRight = 24,
-  MFManeuverContinueSlightLeft = 25,
-  MFManeuverArriveRight = 26,
-  MFManeuverArriveLeft = 27,
-  MFManeuverOffRampSlightLeft = 28,
-  MFManeuverOffRampSlightRight = 29,
-  MFManeuverRotarySlightLeft = 30,
-  MFManeuverRotarySlightRight = 31,
-  MFManeuverRoundAboutStraight = 32,
-  MFManeuverArrive = 33,
-  MFManeuverStraight = 34,
-  MFManeuverRoundAboutRight = 35,
-  MFManeuverRoundAboutLeft = 36,
-  MFManeuverTurnSlightRight = 37,
-  MFManeuverTurnSlightLeft = 38,
-  MFManeuverKeepLeft = 39,
-  MFManeuverKeepRight = 40,
-  MFManeuverTurnLeft = 41,
-  MFManeuverTurnRight = 42,
-  MFManeuverTurnSharpRight = 43,
-  MFManeuverTurnSharpLeft = 44,
-  MFManeuverFinish = 45,
+  MFManeuverKeepLeft = 1,
+  MFManeuverKeepRight = 2,
+  MFManeuverTurnSharpRight = 3,
+  MFManeuverTurnSharpLeft = 4,
+  MFManeuverTurnLeft = 5,
+  MFManeuverTurnRight = 6,
+  MFManeuverTurnSlightLeft = 7,
+  MFManeuverTurnSlightRight = 8,
+  MFManeuverContinueOnStreet = 9,
+  MFManeuverFinish = 10,
+  MFManeuverRoundaboutLeft = 11,
+  MFManeuverRoundaboutRight = 12,
 };
 
 @class MFRouteLeg;
 @class MFRouteInfo;
-@class MFWaypoint;
-enum MFTravelMode : NSInteger;
 
 SWIFT_CLASS("_TtC13Map4dServices7MFRoute")
 @interface MFRoute : NSObject
@@ -1062,8 +1003,7 @@ SWIFT_CLASS("_TtC13Map4dServices7MFRoute")
 @property (nonatomic, strong) MFRouteInfo * _Nonnull distance;
 @property (nonatomic, strong) MFRouteInfo * _Nonnull duration;
 @property (nonatomic, copy) NSArray<NSValue *> * _Nonnull snappedCoordinates;
-@property (nonatomic, copy) NSArray<MFWaypoint *> * _Nonnull waypoints;
-@property (nonatomic) enum MFTravelMode mode;
+@property (nonatomic, strong) MFRouteOptions * _Nullable options;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1100,6 +1040,17 @@ SWIFT_CLASS_NAMED("Leg")
 @interface MFRoute (SWIFT_EXTENSION(Map4dServices))
 @end
 
+typedef SWIFT_ENUM_NAMED(NSInteger, MFRouteWeighting, "Weighting", closed) {
+  MFRouteWeightingShortest = 0,
+  MFRouteWeightingFastest = 1,
+  MFRouteWeightingBalance = 2,
+};
+
+
+@interface MFRoute (SWIFT_EXTENSION(Map4dServices))
+@end
+
+enum MFTravelMode : NSInteger;
 
 SWIFT_CLASS_NAMED("Step")
 @interface MFRouteStep : NSObject
@@ -1116,10 +1067,16 @@ SWIFT_CLASS_NAMED("Step")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class MFWaypoint;
 
 SWIFT_CLASS("_TtC13Map4dServices14MFRouteOptions")
 @interface MFRouteOptions : NSObject
+@property (nonatomic, copy) NSArray<MFWaypoint *> * _Nonnull waypoints;
+@property (nonatomic) enum MFTravelMode mode;
+@property (nonatomic) enum MFRouteWeighting weighting;
+@property (nonatomic, copy) NSString * _Nonnull language;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (MFRouteOptions * _Nonnull)clone SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1148,6 +1105,7 @@ SWIFT_CLASS("_TtC13Map4dServices10MFWaypoint")
 @property (nonatomic, copy) NSString * _Nullable name;
 - (nonnull instancetype)initWithCoordinate:(CLLocationCoordinate2D)coordinate name:(NSString * _Nullable)name OBJC_DESIGNATED_INITIALIZER;
 @property (nonatomic, readonly, copy) NSString * _Nonnull description;
+- (MFWaypoint * _Nonnull)clone SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
