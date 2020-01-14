@@ -241,6 +241,7 @@ typedef SWIFT_ENUM(NSInteger, MFManeuver, closed) {
   MFManeuverFinish = 10,
   MFManeuverRoundaboutLeft = 11,
   MFManeuverRoundaboutRight = 12,
+  MFManeuverReachedVia = 13,
 };
 
 @class MFRouteLeg;
@@ -645,6 +646,7 @@ typedef SWIFT_ENUM(NSInteger, MFManeuver, closed) {
   MFManeuverFinish = 10,
   MFManeuverRoundaboutLeft = 11,
   MFManeuverRoundaboutRight = 12,
+  MFManeuverReachedVia = 13,
 };
 
 @class MFRouteLeg;
@@ -1048,6 +1050,7 @@ typedef SWIFT_ENUM(NSInteger, MFManeuver, closed) {
   MFManeuverFinish = 10,
   MFManeuverRoundaboutLeft = 11,
   MFManeuverRoundaboutRight = 12,
+  MFManeuverReachedVia = 13,
 };
 
 @class MFRouteLeg;

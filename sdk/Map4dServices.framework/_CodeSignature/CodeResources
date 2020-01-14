@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/Map4dServices-Swift.h</key>
 		<data>
-		gz6HdmpdB2ucF/3q9gLxUIKdYo4=
+		sXRrRKWLfHAuXNFwmUJ/dh9TW0E=
 		</data>
 		<key>Headers/Map4dServices.h</key>
 		<data>
@@ -14,7 +14,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		3+sE4HVJLDrDCahS5QcJmqfuXMQ=
+		sycFRqs4GFuYSMZAwvV1vY2/4b4=
 		</data>
 		<key>Modules/Map4dServices.swiftmodule/arm.swiftdoc</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Modules/Map4dServices.swiftmodule/arm.swiftmodule</key>
 		<data>
-		sU2PG8oWplFWGV7ewu0MGkWTcDM=
+		PmSBLooPJCJFgWnji/UTTeE9boU=
 		</data>
 		<key>Modules/Map4dServices.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/Map4dServices.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		/ZntWegDP/jgGPPyuZ2+NzPOiK8=
+		I1R2LOLoFwaI5bu5dt1YihhmvzQ=
 		</data>
 		<key>Modules/Map4dServices.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Modules/Map4dServices.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		/ZntWegDP/jgGPPyuZ2+NzPOiK8=
+		I1R2LOLoFwaI5bu5dt1YihhmvzQ=
 		</data>
 		<key>Modules/Map4dServices.swiftmodule/armv7-apple-ios.swiftdoc</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Modules/Map4dServices.swiftmodule/armv7-apple-ios.swiftmodule</key>
 		<data>
-		sU2PG8oWplFWGV7ewu0MGkWTcDM=
+		PmSBLooPJCJFgWnji/UTTeE9boU=
 		</data>
 		<key>Modules/Map4dServices.swiftmodule/armv7.swiftdoc</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Modules/Map4dServices.swiftmodule/armv7.swiftmodule</key>
 		<data>
-		sU2PG8oWplFWGV7ewu0MGkWTcDM=
+		PmSBLooPJCJFgWnji/UTTeE9boU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -67,11 +67,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			gz6HdmpdB2ucF/3q9gLxUIKdYo4=
+			sXRrRKWLfHAuXNFwmUJ/dh9TW0E=
 			</data>
 			<key>hash2</key>
 			<data>
-			P6dPa+3ioETL+L8QEEoMB8XISqlXKCDpYvd+8feHTCs=
+			8ivyDtAD40zlF590LKgDGaJsnHKVRmJj5neG3WytONw=
 			</data>
 		</dict>
 		<key>Headers/Map4dServices.h</key>
@@ -100,11 +100,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			sU2PG8oWplFWGV7ewu0MGkWTcDM=
+			PmSBLooPJCJFgWnji/UTTeE9boU=
 			</data>
 			<key>hash2</key>
 			<data>
-			q/5mPGLNp4JFjYXrtbiMN0UxGWYIGEe5sbDuxZYffiw=
+			g1xqLNolMWKIPmV5/kcrLpyCYtlAuEmbVEkZ5w8QvqM=
 			</data>
 		</dict>
 		<key>Modules/Map4dServices.swiftmodule/arm64-apple-ios.swiftdoc</key>
@@ -122,11 +122,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/ZntWegDP/jgGPPyuZ2+NzPOiK8=
+			I1R2LOLoFwaI5bu5dt1YihhmvzQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			90JUGqQIYqW24NsIggNZV9stet2525nbhWdLlhWJW+o=
+			DR/4cEyUQxeuEr8OCxdZo1tQec+TTtnUb3giGNQAAaI=
 			</data>
 		</dict>
 		<key>Modules/Map4dServices.swiftmodule/arm64.swiftdoc</key>
@@ -144,11 +144,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/ZntWegDP/jgGPPyuZ2+NzPOiK8=
+			I1R2LOLoFwaI5bu5dt1YihhmvzQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			90JUGqQIYqW24NsIggNZV9stet2525nbhWdLlhWJW+o=
+			DR/4cEyUQxeuEr8OCxdZo1tQec+TTtnUb3giGNQAAaI=
 			</data>
 		</dict>
 		<key>Modules/Map4dServices.swiftmodule/armv7-apple-ios.swiftdoc</key>
@@ -166,11 +166,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			sU2PG8oWplFWGV7ewu0MGkWTcDM=
+			PmSBLooPJCJFgWnji/UTTeE9boU=
 			</data>
 			<key>hash2</key>
 			<data>
-			q/5mPGLNp4JFjYXrtbiMN0UxGWYIGEe5sbDuxZYffiw=
+			g1xqLNolMWKIPmV5/kcrLpyCYtlAuEmbVEkZ5w8QvqM=
 			</data>
 		</dict>
 		<key>Modules/Map4dServices.swiftmodule/armv7.swiftdoc</key>
@@ -188,11 +188,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			sU2PG8oWplFWGV7ewu0MGkWTcDM=
+			PmSBLooPJCJFgWnji/UTTeE9boU=
 			</data>
 			<key>hash2</key>
 			<data>
-			q/5mPGLNp4JFjYXrtbiMN0UxGWYIGEe5sbDuxZYffiw=
+			g1xqLNolMWKIPmV5/kcrLpyCYtlAuEmbVEkZ5w8QvqM=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
