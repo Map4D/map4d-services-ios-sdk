@@ -292,6 +292,16 @@ SWIFT_CLASS_NAMED("Leg")
 @interface MFRoute (SWIFT_EXTENSION(Map4dServices))
 @end
 
+typedef SWIFT_ENUM_NAMED(NSInteger, MFRouteWeighting, "Weighting", closed) {
+  MFRouteWeightingShortest = 0,
+  MFRouteWeightingFastest = 1,
+  MFRouteWeightingBalance = 2,
+};
+
+
+@interface MFRoute (SWIFT_EXTENSION(Map4dServices))
+@end
+
 enum MFTravelMode : NSInteger;
 
 SWIFT_CLASS_NAMED("Step")
@@ -308,16 +318,6 @@ SWIFT_CLASS_NAMED("Step")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
-
-
-@interface MFRoute (SWIFT_EXTENSION(Map4dServices))
-@end
-
-typedef SWIFT_ENUM_NAMED(NSInteger, MFRouteWeighting, "Weighting", closed) {
-  MFRouteWeightingShortest = 0,
-  MFRouteWeightingFastest = 1,
-  MFRouteWeightingBalance = 2,
-};
 
 @class MFWaypoint;
 
@@ -344,40 +344,11 @@ SWIFT_PROTOCOL("_TtP13Map4dServices13MFServiceTask_")
 - (void)abort;
 @end
 
-
-SWIFT_CLASS("_TtC13Map4dServices14MFSpeakOptions")
-@interface MFSpeakOptions : NSObject
-@property (nonatomic, copy) NSArray<NSString *> * _Nullable texts;
-- (MFSpeakOptions * _Nonnull)clone SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class MFVoiceOptions;
-
-SWIFT_CLASS("_TtC13Map4dServices14MFTextToSpeech")
-@interface MFTextToSpeech : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MFTextToSpeech * _Nonnull shared;)
-+ (MFTextToSpeech * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, strong) MFVoiceOptions * _Nullable options;
-- (id <MFServiceTask> _Nullable)audioDataWith:(MFSpeakOptions * _Nonnull)options completion:(void (^ _Nonnull)(NSArray<NSData *> * _Nullable, id <MFServiceError> _Nullable))completion;
-- (nonnull instancetype)initWithOptions:(MFVoiceOptions * _Nullable)options OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
 typedef SWIFT_ENUM(NSInteger, MFTravelMode, closed) {
   MFTravelModeCar = 0,
   MFTravelModeBike = 1,
   MFTravelModeFoot = 2,
 };
-
-
-SWIFT_CLASS("_TtC13Map4dServices14MFVoiceOptions")
-@interface MFVoiceOptions : NSObject
-@property (nonatomic, copy) NSString * _Nullable accessKey;
-- (MFVoiceOptions * _Nonnull)clone SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
 
 
 SWIFT_CLASS("_TtC13Map4dServices10MFWaypoint")
@@ -697,6 +668,16 @@ SWIFT_CLASS_NAMED("Leg")
 @interface MFRoute (SWIFT_EXTENSION(Map4dServices))
 @end
 
+typedef SWIFT_ENUM_NAMED(NSInteger, MFRouteWeighting, "Weighting", closed) {
+  MFRouteWeightingShortest = 0,
+  MFRouteWeightingFastest = 1,
+  MFRouteWeightingBalance = 2,
+};
+
+
+@interface MFRoute (SWIFT_EXTENSION(Map4dServices))
+@end
+
 enum MFTravelMode : NSInteger;
 
 SWIFT_CLASS_NAMED("Step")
@@ -713,16 +694,6 @@ SWIFT_CLASS_NAMED("Step")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
-
-
-@interface MFRoute (SWIFT_EXTENSION(Map4dServices))
-@end
-
-typedef SWIFT_ENUM_NAMED(NSInteger, MFRouteWeighting, "Weighting", closed) {
-  MFRouteWeightingShortest = 0,
-  MFRouteWeightingFastest = 1,
-  MFRouteWeightingBalance = 2,
-};
 
 @class MFWaypoint;
 
@@ -749,40 +720,11 @@ SWIFT_PROTOCOL("_TtP13Map4dServices13MFServiceTask_")
 - (void)abort;
 @end
 
-
-SWIFT_CLASS("_TtC13Map4dServices14MFSpeakOptions")
-@interface MFSpeakOptions : NSObject
-@property (nonatomic, copy) NSArray<NSString *> * _Nullable texts;
-- (MFSpeakOptions * _Nonnull)clone SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class MFVoiceOptions;
-
-SWIFT_CLASS("_TtC13Map4dServices14MFTextToSpeech")
-@interface MFTextToSpeech : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MFTextToSpeech * _Nonnull shared;)
-+ (MFTextToSpeech * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, strong) MFVoiceOptions * _Nullable options;
-- (id <MFServiceTask> _Nullable)audioDataWith:(MFSpeakOptions * _Nonnull)options completion:(void (^ _Nonnull)(NSArray<NSData *> * _Nullable, id <MFServiceError> _Nullable))completion;
-- (nonnull instancetype)initWithOptions:(MFVoiceOptions * _Nullable)options OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
 typedef SWIFT_ENUM(NSInteger, MFTravelMode, closed) {
   MFTravelModeCar = 0,
   MFTravelModeBike = 1,
   MFTravelModeFoot = 2,
 };
-
-
-SWIFT_CLASS("_TtC13Map4dServices14MFVoiceOptions")
-@interface MFVoiceOptions : NSObject
-@property (nonatomic, copy) NSString * _Nullable accessKey;
-- (MFVoiceOptions * _Nonnull)clone SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
 
 
 SWIFT_CLASS("_TtC13Map4dServices10MFWaypoint")
@@ -1101,6 +1043,16 @@ SWIFT_CLASS_NAMED("Leg")
 @interface MFRoute (SWIFT_EXTENSION(Map4dServices))
 @end
 
+typedef SWIFT_ENUM_NAMED(NSInteger, MFRouteWeighting, "Weighting", closed) {
+  MFRouteWeightingShortest = 0,
+  MFRouteWeightingFastest = 1,
+  MFRouteWeightingBalance = 2,
+};
+
+
+@interface MFRoute (SWIFT_EXTENSION(Map4dServices))
+@end
+
 enum MFTravelMode : NSInteger;
 
 SWIFT_CLASS_NAMED("Step")
@@ -1117,16 +1069,6 @@ SWIFT_CLASS_NAMED("Step")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
-
-
-@interface MFRoute (SWIFT_EXTENSION(Map4dServices))
-@end
-
-typedef SWIFT_ENUM_NAMED(NSInteger, MFRouteWeighting, "Weighting", closed) {
-  MFRouteWeightingShortest = 0,
-  MFRouteWeightingFastest = 1,
-  MFRouteWeightingBalance = 2,
-};
 
 @class MFWaypoint;
 
@@ -1153,40 +1095,11 @@ SWIFT_PROTOCOL("_TtP13Map4dServices13MFServiceTask_")
 - (void)abort;
 @end
 
-
-SWIFT_CLASS("_TtC13Map4dServices14MFSpeakOptions")
-@interface MFSpeakOptions : NSObject
-@property (nonatomic, copy) NSArray<NSString *> * _Nullable texts;
-- (MFSpeakOptions * _Nonnull)clone SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class MFVoiceOptions;
-
-SWIFT_CLASS("_TtC13Map4dServices14MFTextToSpeech")
-@interface MFTextToSpeech : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) MFTextToSpeech * _Nonnull shared;)
-+ (MFTextToSpeech * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, strong) MFVoiceOptions * _Nullable options;
-- (id <MFServiceTask> _Nullable)audioDataWith:(MFSpeakOptions * _Nonnull)options completion:(void (^ _Nonnull)(NSArray<NSData *> * _Nullable, id <MFServiceError> _Nullable))completion;
-- (nonnull instancetype)initWithOptions:(MFVoiceOptions * _Nullable)options OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
 typedef SWIFT_ENUM(NSInteger, MFTravelMode, closed) {
   MFTravelModeCar = 0,
   MFTravelModeBike = 1,
   MFTravelModeFoot = 2,
 };
-
-
-SWIFT_CLASS("_TtC13Map4dServices14MFVoiceOptions")
-@interface MFVoiceOptions : NSObject
-@property (nonatomic, copy) NSString * _Nullable accessKey;
-- (MFVoiceOptions * _Nonnull)clone SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
 
 
 SWIFT_CLASS("_TtC13Map4dServices10MFWaypoint")
