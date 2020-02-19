@@ -264,17 +264,6 @@ SWIFT_CLASS("_TtC13Map4dServices7MFRoute")
 @interface MFRoute (SWIFT_EXTENSION(Map4dServices))
 @end
 
-
-SWIFT_CLASS_NAMED("Info")
-@interface MFRouteInfo : NSObject
-@property (nonatomic, copy) NSString * _Nonnull text;
-@property (nonatomic) double value;
-@end
-
-
-@interface MFRoute (SWIFT_EXTENSION(Map4dServices))
-@end
-
 @class MFRouteStep;
 
 SWIFT_CLASS_NAMED("Leg")
@@ -317,6 +306,17 @@ SWIFT_CLASS_NAMED("Step")
 @property (nonatomic) enum MFTravelMode mode;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@interface MFRoute (SWIFT_EXTENSION(Map4dServices))
+@end
+
+
+SWIFT_CLASS_NAMED("Info")
+@interface MFRouteInfo : NSObject
+@property (nonatomic, copy) NSString * _Nonnull text;
+@property (nonatomic) double value;
 @end
 
 @class MFWaypoint;
@@ -366,6 +366,11 @@ SWIFT_CLASS("_TtC13Map4dServices10MFWaypoint")
 @interface NSError (SWIFT_EXTENSION(Map4dServices)) <MFServiceError>
 @property (nonatomic, readonly, copy) NSString * _Nonnull errorCode;
 @property (nonatomic, readonly, copy) NSString * _Nonnull errorMessage;
+@end
+
+
+@interface NSURLSessionTask (SWIFT_EXTENSION(Map4dServices)) <MFServiceTask>
+- (void)abort;
 @end
 
 #if __has_attribute(external_source_symbol)
@@ -640,17 +645,6 @@ SWIFT_CLASS("_TtC13Map4dServices7MFRoute")
 @interface MFRoute (SWIFT_EXTENSION(Map4dServices))
 @end
 
-
-SWIFT_CLASS_NAMED("Info")
-@interface MFRouteInfo : NSObject
-@property (nonatomic, copy) NSString * _Nonnull text;
-@property (nonatomic) double value;
-@end
-
-
-@interface MFRoute (SWIFT_EXTENSION(Map4dServices))
-@end
-
 @class MFRouteStep;
 
 SWIFT_CLASS_NAMED("Leg")
@@ -693,6 +687,17 @@ SWIFT_CLASS_NAMED("Step")
 @property (nonatomic) enum MFTravelMode mode;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@interface MFRoute (SWIFT_EXTENSION(Map4dServices))
+@end
+
+
+SWIFT_CLASS_NAMED("Info")
+@interface MFRouteInfo : NSObject
+@property (nonatomic, copy) NSString * _Nonnull text;
+@property (nonatomic) double value;
 @end
 
 @class MFWaypoint;
@@ -742,6 +747,11 @@ SWIFT_CLASS("_TtC13Map4dServices10MFWaypoint")
 @interface NSError (SWIFT_EXTENSION(Map4dServices)) <MFServiceError>
 @property (nonatomic, readonly, copy) NSString * _Nonnull errorCode;
 @property (nonatomic, readonly, copy) NSString * _Nonnull errorMessage;
+@end
+
+
+@interface NSURLSessionTask (SWIFT_EXTENSION(Map4dServices)) <MFServiceTask>
+- (void)abort;
 @end
 
 #if __has_attribute(external_source_symbol)
@@ -1015,17 +1025,6 @@ SWIFT_CLASS("_TtC13Map4dServices7MFRoute")
 @interface MFRoute (SWIFT_EXTENSION(Map4dServices))
 @end
 
-
-SWIFT_CLASS_NAMED("Info")
-@interface MFRouteInfo : NSObject
-@property (nonatomic, copy) NSString * _Nonnull text;
-@property (nonatomic) double value;
-@end
-
-
-@interface MFRoute (SWIFT_EXTENSION(Map4dServices))
-@end
-
 @class MFRouteStep;
 
 SWIFT_CLASS_NAMED("Leg")
@@ -1068,6 +1067,17 @@ SWIFT_CLASS_NAMED("Step")
 @property (nonatomic) enum MFTravelMode mode;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@interface MFRoute (SWIFT_EXTENSION(Map4dServices))
+@end
+
+
+SWIFT_CLASS_NAMED("Info")
+@interface MFRouteInfo : NSObject
+@property (nonatomic, copy) NSString * _Nonnull text;
+@property (nonatomic) double value;
 @end
 
 @class MFWaypoint;
@@ -1117,6 +1127,11 @@ SWIFT_CLASS("_TtC13Map4dServices10MFWaypoint")
 @interface NSError (SWIFT_EXTENSION(Map4dServices)) <MFServiceError>
 @property (nonatomic, readonly, copy) NSString * _Nonnull errorCode;
 @property (nonatomic, readonly, copy) NSString * _Nonnull errorMessage;
+@end
+
+
+@interface NSURLSessionTask (SWIFT_EXTENSION(Map4dServices)) <MFServiceTask>
+- (void)abort;
 @end
 
 #if __has_attribute(external_source_symbol)
