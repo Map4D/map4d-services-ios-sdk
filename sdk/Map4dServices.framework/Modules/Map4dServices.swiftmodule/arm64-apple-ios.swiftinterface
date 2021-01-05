@@ -1,0 +1,302 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)
+// swift-module-flags: -target arm64-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Map4dServices
+import CoreLocation
+import Foundation
+@_exported import Map4dServices
+import MapKit
+import Swift
+import UIKit
+@objc open class MFDirection : ObjectiveC.NSObject {
+  @objc public var options: Map4dServices.MFDirectionOptions?
+  @objc public static let shared: Map4dServices.MFDirection
+  @discardableResult
+  @objc open func calculate(options: Map4dServices.MFRouteOptions, completion: @escaping Map4dServices.MFServiceCompletion<Swift.Array<Map4dServices.MFRoute>>) -> Map4dServices.MFServiceTask?
+  @objc public init(options: Map4dServices.MFDirectionOptions? = nil)
+  @objc deinit
+  @objc override dynamic public init()
+}
+public typealias MFServiceCompletion<T> = (T?, Map4dServices.MFServiceError?) -> Swift.Void
+@objc public protocol MFServiceTask {
+  @objc func abort()
+}
+@objc public protocol MFServiceError {
+  @objc var errorCode: Swift.String { get }
+  @objc var errorMessage: Swift.String { get }
+}
+extension MFRoute {
+  @objc(MFRouteWeighting) public enum Weighting : Swift.Int, Swift.Codable {
+    case shortest = 0
+    case fastest = 1
+    case balance = 2
+    public typealias RawValue = Swift.Int
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+}
+extension URLSessionTask : Map4dServices.MFServiceTask {
+  @objc dynamic public func abort()
+}
+extension NSError : Map4dServices.MFServiceError {
+  @objc dynamic public var errorCode: Swift.String {
+    @objc get
+  }
+  @objc dynamic public var errorMessage: Swift.String {
+    @objc get
+  }
+}
+@_inheritsConvenienceInitializers @objc open class MFDirectionOptions : ObjectiveC.NSObject {
+  @objc public var accessKey: Swift.String?
+  @objc public var language: Swift.String?
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objcMembers @objc open class MFRoute : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var summary: Swift.String
+  @objc public var overviewCoordinates: [CoreLocation.CLLocationCoordinate2D]
+  @objc public var legs: [Map4dServices.MFRoute.Leg]
+  @objc public var distance: Map4dServices.MFRoute.Info
+  @objc public var duration: Map4dServices.MFRoute.Info
+  @objc public var snappedCoordinates: [CoreLocation.CLLocationCoordinate2D]
+  @objc public var options: Map4dServices.MFRouteOptions?
+  public enum CodingKeys : Swift.String, Swift.CodingKey {
+    case summary
+    case overviewCoordinates
+    case legs
+    case distance
+    case duration
+    case snappedCoordinates
+    public typealias RawValue = Swift.String
+    public init?(rawValue: Swift.String)
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+    public init?(stringValue: Swift.String)
+    public var intValue: Swift.Int? {
+      get
+    }
+    public init?(intValue: Swift.Int)
+  }
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
+  @objc override dynamic public init()
+}
+extension MFRoute {
+  @objc(MFRouteStep) open class Step : ObjectiveC.NSObject, Swift.Codable {
+    @objc public var instruction: Swift.String
+    @objc public var maneuver: Map4dServices.MFManeuver
+    @objc public var distance: Map4dServices.MFRoute.Info
+    @objc public var duration: Map4dServices.MFRoute.Info
+    @objc public var startCoordinate: CoreLocation.CLLocationCoordinate2D
+    @objc public var endCoordinate: CoreLocation.CLLocationCoordinate2D
+    @objc public var coordinates: [CoreLocation.CLLocationCoordinate2D]
+    @objc public var streetName: Swift.String
+    @objc public var mode: Map4dServices.MFTravelMode
+    public enum CodingKeys : Swift.String, Swift.CodingKey {
+      case instruction
+      case maneuver
+      case distance
+      case duration
+      case startCoordinate
+      case endCoordinate
+      case coordinates
+      case streetName
+      case mode
+      public typealias RawValue = Swift.String
+      public init?(rawValue: Swift.String)
+      public var rawValue: Swift.String {
+        get
+      }
+      public var stringValue: Swift.String {
+        get
+      }
+      public init?(stringValue: Swift.String)
+      public var intValue: Swift.Int? {
+        get
+      }
+      public init?(intValue: Swift.Int)
+    }
+    public func encode(to encoder: Swift.Encoder) throws
+    required public init(from decoder: Swift.Decoder) throws
+    @objc deinit
+    @objc override dynamic public init()
+  }
+}
+extension CLLocationCoordinate2D : Swift.Codable {
+  public enum CodingKeys : Swift.String, Swift.CodingKey {
+    case lat
+    case lng
+    public typealias RawValue = Swift.String
+    public init?(rawValue: Swift.String)
+    public var rawValue: Swift.String {
+      get
+    }
+    public var stringValue: Swift.String {
+      get
+    }
+    public init?(stringValue: Swift.String)
+    public var intValue: Swift.Int? {
+      get
+    }
+    public init?(intValue: Swift.Int)
+  }
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct Polyline {
+  public let coordinates: [CoreLocation.CLLocationCoordinate2D]?
+  public let encodedPolyline: Swift.String
+  public let levels: [Swift.UInt32]?
+  public let encodedLevels: Swift.String?
+  public var locations: [CoreLocation.CLLocation]? {
+    get
+  }
+  @available(tvOS 9.2, *)
+  public var mkPolyline: MapKit.MKPolyline? {
+    get
+  }
+  public init(coordinates: [CoreLocation.CLLocationCoordinate2D], levels: [Swift.UInt32]? = nil, precision: Swift.Double = 1e5)
+  public init(encodedPolyline: Swift.String, encodedLevels: Swift.String? = nil, precision: Swift.Double = 1e5)
+  public init(locations: [CoreLocation.CLLocation], levels: [Swift.UInt32]? = nil, precision: Swift.Double = 1e5)
+}
+public func encodeCoordinates(_ coordinates: [CoreLocation.CLLocationCoordinate2D], precision: Swift.Double = 1e5) -> Swift.String
+public func encodeLocations(_ locations: [CoreLocation.CLLocation], precision: Swift.Double = 1e5) -> Swift.String
+public func encodeLevels(_ levels: [Swift.UInt32]) -> Swift.String
+public func decodePolyline(_ encodedPolyline: Swift.String, precision: Swift.Double = 1e5) -> [CoreLocation.CLLocationCoordinate2D]?
+public func decodePolyline(_ encodedPolyline: Swift.String, precision: Swift.Double = 1e5) -> [CoreLocation.CLLocation]?
+public func decodeLevels(_ encodedLevels: Swift.String) -> [Swift.UInt32]?
+@objcMembers @objc open class MFWaypoint : ObjectiveC.NSObject {
+  @objc public var coordinate: CoreLocation.CLLocationCoordinate2D
+  @objc open var name: Swift.String?
+  @objc public init(coordinate: CoreLocation.CLLocationCoordinate2D, name: Swift.String? = nil)
+  @objc override dynamic open var description: Swift.String {
+    @objc get
+  }
+  @objc open func clone() -> Map4dServices.MFWaypoint
+  @objc deinit
+  @objc override dynamic public init()
+}
+@_inheritsConvenienceInitializers @objc open class MFRouteOptions : ObjectiveC.NSObject {
+  @objc public var waypoints: [Map4dServices.MFWaypoint]
+  @objc public var mode: Map4dServices.MFTravelMode
+  @objc public var weighting: Map4dServices.MFRoute.Weighting
+  @objc public var language: Swift.String
+  @objc override dynamic public init()
+  @objc public func clone() -> Map4dServices.MFRouteOptions
+  @objc deinit
+}
+@objc public enum MFManeuver : Swift.Int, Swift.CustomStringConvertible, Swift.Codable {
+  case none
+  case keepLeft
+  case keepRight
+  case turnSharpRight
+  case turnSharpLeft
+  case turnLeft
+  case turnRight
+  case turnSlightLeft
+  case turnSlightRight
+  case continueOnStreet
+  case finish
+  case roundaboutLeft
+  case roundaboutRight
+  case reachedVia
+  public init(describing: Swift.String)
+  public var description: Swift.String {
+    get
+  }
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension MFRoute {
+  @objcMembers @objc(MFRouteLeg) open class Leg : ObjectiveC.NSObject, Swift.Codable {
+    @objc public var distance: Map4dServices.MFRoute.Info
+    @objc public var duration: Map4dServices.MFRoute.Info
+    @objc public var startAddress: Swift.String
+    @objc public var endAddress: Swift.String
+    @objc public var startCoordinate: CoreLocation.CLLocationCoordinate2D
+    @objc public var endCoordinate: CoreLocation.CLLocationCoordinate2D
+    @objc public var steps: [Map4dServices.MFRoute.Step]
+    public enum CodingKeys : Swift.String, Swift.CodingKey {
+      case distance
+      case duration
+      case startAddress
+      case endAddress
+      case startCoordinate
+      case endCoordinate
+      case steps
+      public typealias RawValue = Swift.String
+      public init?(rawValue: Swift.String)
+      public var rawValue: Swift.String {
+        get
+      }
+      public var stringValue: Swift.String {
+        get
+      }
+      public init?(stringValue: Swift.String)
+      public var intValue: Swift.Int? {
+        get
+      }
+      public init?(intValue: Swift.Int)
+    }
+    @objc deinit
+    required public init(from decoder: Swift.Decoder) throws
+    open func encode(to encoder: Swift.Encoder) throws
+  }
+}
+extension MFRoute {
+  @objc(MFRouteInfo) open class Info : ObjectiveC.NSObject, Swift.Codable {
+    @objc public var text: Swift.String
+    @objc public var value: Swift.Double
+    @objc deinit
+    required public init(from decoder: Swift.Decoder) throws
+    open func encode(to encoder: Swift.Encoder) throws
+  }
+}
+@objc public enum MFTravelMode : Swift.Int, Swift.CustomStringConvertible, Swift.Codable {
+  case car = 0
+  case bike
+  case foot
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public var description: Swift.String {
+    get
+  }
+  public init(describing: Swift.String)
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension Map4dServices.MFRoute.Weighting : Swift.Equatable {}
+extension Map4dServices.MFRoute.Weighting : Swift.Hashable {}
+extension Map4dServices.MFRoute.Weighting : Swift.RawRepresentable {}
+extension Map4dServices.MFRoute.CodingKeys : Swift.Equatable {}
+extension Map4dServices.MFRoute.CodingKeys : Swift.Hashable {}
+extension Map4dServices.MFRoute.CodingKeys : Swift.RawRepresentable {}
+extension Map4dServices.MFRoute.Step.CodingKeys : Swift.Equatable {}
+extension Map4dServices.MFRoute.Step.CodingKeys : Swift.Hashable {}
+extension Map4dServices.MFRoute.Step.CodingKeys : Swift.RawRepresentable {}
+extension CoreLocation.CLLocationCoordinate2D.CodingKeys : Swift.Equatable {}
+extension CoreLocation.CLLocationCoordinate2D.CodingKeys : Swift.Hashable {}
+extension CoreLocation.CLLocationCoordinate2D.CodingKeys : Swift.RawRepresentable {}
+extension Map4dServices.MFManeuver : Swift.Equatable {}
+extension Map4dServices.MFManeuver : Swift.Hashable {}
+extension Map4dServices.MFManeuver : Swift.RawRepresentable {}
+extension Map4dServices.MFRoute.Leg.CodingKeys : Swift.Equatable {}
+extension Map4dServices.MFRoute.Leg.CodingKeys : Swift.Hashable {}
+extension Map4dServices.MFRoute.Leg.CodingKeys : Swift.RawRepresentable {}
+extension Map4dServices.MFTravelMode : Swift.Equatable {}
+extension Map4dServices.MFTravelMode : Swift.Hashable {}
+extension Map4dServices.MFTravelMode : Swift.RawRepresentable {}
