@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Np-PX-t84">
+                                <rect key="frame" x="50" y="94" width="130" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="LcU-SC-hQL"/>
+                                    <constraint firstAttribute="width" constant="130" id="tMY-wB-QVd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <state key="normal" title="Route"/>
+                                <connections>
+                                    <action selector="didTapRoute:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4wv-Vz-OAZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ot4-yg-XJB">
+                                <rect key="frame" x="50" y="134" width="130" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="G6b-WD-hT6"/>
+                                    <constraint firstAttribute="height" constant="40" id="Mc8-21-lbD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <state key="normal" title="DistanceMatrix"/>
+                                <connections>
+                                    <action selector="didTapDistanceMatrix:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DKN-wy-bqL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ac-0D-QDj">
+                                <rect key="frame" x="50" y="174" width="130" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="9UE-la-ZN3"/>
+                                    <constraint firstAttribute="height" constant="40" id="fdV-n8-eX6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <state key="normal" title="Geocode"/>
+                                <connections>
+                                    <action selector="didTapGeocode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CYi-Lp-1X7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BuJ-n5-Wfb">
+                                <rect key="frame" x="50" y="214" width="130" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="25V-Lr-9es"/>
+                                    <constraint firstAttribute="height" constant="40" id="Xmr-NB-tBX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <state key="normal" title="AutoSuggest"/>
+                                <connections>
+                                    <action selector="didTapAutoSuggest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fF9-L8-lAl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfD-QB-HMa">
+                                <rect key="frame" x="50" y="254" width="130" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="BXP-bT-Uj0"/>
+                                    <constraint firstAttribute="height" constant="40" id="Ri1-Ry-gYV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <state key="normal" title="PlaceDetail"/>
+                                <connections>
+                                    <action selector="didTapPlaceDetail:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ko0-vB-r2l"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdv-wM-Xjh">
+                                <rect key="frame" x="50" y="294" width="130" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="M3r-s4-rex"/>
+                                    <constraint firstAttribute="width" constant="130" id="dR3-VK-1nI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <state key="normal" title="TextSearch"/>
+                                <connections>
+                                    <action selector="didTapTextSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TnN-b2-KbJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qes-7I-y17">
+                                <rect key="frame" x="50" y="334" width="130" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="R4H-zX-Fir"/>
+                                    <constraint firstAttribute="width" constant="130" id="fIH-Mi-Ejq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <state key="normal" title="Nearby Search"/>
+                                <connections>
+                                    <action selector="didTapNearbySearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Stv-pF-Kii"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZm-3d-DLv">
+                                <rect key="frame" x="50" y="374" width="130" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="MFT-Hy-FjP"/>
+                                    <constraint firstAttribute="width" constant="130" id="T4t-qz-ysy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <state key="normal" title="Viewbox Search"/>
+                                <connections>
+                                    <action selector="didTapViewboxSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Oe-7P-c1D"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright by IOT-Link" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnF-Qb-aIl">
+                                <rect key="frame" x="0.0" y="822.5" width="414" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ot4-yg-XJB" firstAttribute="centerX" secondItem="8Np-PX-t84" secondAttribute="centerX" id="7qe-Fp-Kgl"/>
+                            <constraint firstItem="qes-7I-y17" firstAttribute="top" secondItem="kdv-wM-Xjh" secondAttribute="bottom" id="C58-ne-X1Q"/>
+                            <constraint firstItem="UZm-3d-DLv" firstAttribute="centerX" secondItem="qes-7I-y17" secondAttribute="centerX" id="OAw-2S-q6T"/>
+                            <constraint firstItem="8Np-PX-t84" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="Q4S-vO-cSk"/>
+                            <constraint firstItem="vnF-Qb-aIl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QoZ-8u-Fsm"/>
+                            <constraint firstItem="BuJ-n5-Wfb" firstAttribute="top" secondItem="1ac-0D-QDj" secondAttribute="bottom" id="Qtq-Eh-nHR"/>
+                            <constraint firstAttribute="trailing" secondItem="vnF-Qb-aIl" secondAttribute="trailing" id="R3C-aW-bJt"/>
+                            <constraint firstItem="8Np-PX-t84" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="RFX-qL-jxx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vnF-Qb-aIl" secondAttribute="bottom" constant="20" id="SLk-xk-o2n"/>
+                            <constraint firstItem="1ac-0D-QDj" firstAttribute="top" secondItem="Ot4-yg-XJB" secondAttribute="bottom" id="VMq-GD-bO6"/>
+                            <constraint firstItem="kdv-wM-Xjh" firstAttribute="top" secondItem="dfD-QB-HMa" secondAttribute="bottom" id="eGM-FR-n8o"/>
+                            <constraint firstItem="1ac-0D-QDj" firstAttribute="centerX" secondItem="Ot4-yg-XJB" secondAttribute="centerX" id="ek1-ai-0Af"/>
+                            <constraint firstItem="BuJ-n5-Wfb" firstAttribute="centerX" secondItem="1ac-0D-QDj" secondAttribute="centerX" id="fvF-4x-H5c"/>
+                            <constraint firstItem="UZm-3d-DLv" firstAttribute="top" secondItem="qes-7I-y17" secondAttribute="bottom" id="hMI-2M-6id"/>
+                            <constraint firstItem="qes-7I-y17" firstAttribute="centerX" secondItem="kdv-wM-Xjh" secondAttribute="centerX" id="idm-br-gVb"/>
+                            <constraint firstItem="dfD-QB-HMa" firstAttribute="top" secondItem="BuJ-n5-Wfb" secondAttribute="bottom" id="lVF-65-ldp"/>
+                            <constraint firstItem="kdv-wM-Xjh" firstAttribute="centerX" secondItem="dfD-QB-HMa" secondAttribute="centerX" id="ldb-2X-9t5"/>
+                            <constraint firstItem="dfD-QB-HMa" firstAttribute="centerX" secondItem="BuJ-n5-Wfb" secondAttribute="centerX" id="uHk-Kc-82U"/>
+                            <constraint firstItem="Ot4-yg-XJB" firstAttribute="top" secondItem="8Np-PX-t84" secondAttribute="bottom" id="uzt-rl-kLM"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="62"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

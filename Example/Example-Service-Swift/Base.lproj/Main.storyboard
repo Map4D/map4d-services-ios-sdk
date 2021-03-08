@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Example_Service_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U7w-dh-xNx">
+                                <rect key="frame" x="50" y="94" width="130" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="8uv-a2-xd8"/>
+                                    <constraint firstAttribute="height" constant="40" id="fRE-of-5AQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <state key="normal" title="Route">
+                                    <color key="titleColor" systemColor="linkColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapRoute:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1L8-us-4rd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hyu-To-uTb">
+                                <rect key="frame" x="50" y="134" width="130" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="0dc-yP-Aua"/>
+                                    <constraint firstAttribute="width" constant="130" id="KII-PF-1pq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <state key="normal" title="DistanceMatrix">
+                                    <color key="titleColor" systemColor="linkColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapDistanceMatrix:" destination="BYZ-38-t0r" eventType="touchUpInside" id="naV-Bd-Wc0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSR-2N-BzL">
+                                <rect key="frame" x="50" y="174" width="130" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Ebx-Qk-dQS"/>
+                                    <constraint firstAttribute="width" constant="130" id="z0C-A8-92U"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <state key="normal" title="Geocode">
+                                    <color key="titleColor" systemColor="linkColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapGeocode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iab-Wj-QJn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="900-94-lWe">
+                                <rect key="frame" x="50" y="214" width="130" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="EEb-eU-et7"/>
+                                    <constraint firstAttribute="height" constant="40" id="uv1-HO-bT0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <state key="normal" title="AutoSuggest">
+                                    <color key="titleColor" systemColor="linkColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapAutoSuggest:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9nF-yP-bN7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6MG-XI-Xbi">
+                                <rect key="frame" x="50" y="254" width="130" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="G3y-In-OGR"/>
+                                    <constraint firstAttribute="width" constant="130" id="ZH8-qR-wgF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <state key="normal" title="PlaceDetail">
+                                    <color key="titleColor" systemColor="linkColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapPlaceDetail:" destination="BYZ-38-t0r" eventType="touchUpInside" id="04g-ex-1yL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8F-kt-7B7">
+                                <rect key="frame" x="50" y="294" width="130" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="JR2-LW-iIe"/>
+                                    <constraint firstAttribute="width" constant="130" id="znE-MQ-i0h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <state key="normal" title="TextSearch">
+                                    <color key="titleColor" systemColor="linkColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapTextSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="40g-gJ-DhI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfr-u0-paI">
+                                <rect key="frame" x="50" y="334" width="130" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2HE-Pa-Xzn"/>
+                                    <constraint firstAttribute="width" constant="130" id="adn-YA-kWx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <state key="normal" title="Nearby Search">
+                                    <color key="titleColor" systemColor="linkColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapNearbySearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sKG-9q-udi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v6k-3n-Qf0">
+                                <rect key="frame" x="50" y="374" width="130" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="BcF-CO-KjX"/>
+                                    <constraint firstAttribute="width" constant="130" id="xJP-r1-kKr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <state key="normal" title="Viewbox Search">
+                                    <color key="titleColor" systemColor="linkColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapViewboxSearch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Aj-cu-TN6"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright by IOT-Link" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSn-jl-rVo">
+                                <rect key="frame" x="0.0" y="822.5" width="414" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bSR-2N-BzL" firstAttribute="top" secondItem="hyu-To-uTb" secondAttribute="bottom" id="2Ab-Zd-bJ2"/>
+                            <constraint firstItem="6MG-XI-Xbi" firstAttribute="centerX" secondItem="900-94-lWe" secondAttribute="centerX" id="B6p-vu-aBQ"/>
+                            <constraint firstItem="900-94-lWe" firstAttribute="centerX" secondItem="bSR-2N-BzL" secondAttribute="centerX" id="I5x-At-H6V"/>
+                            <constraint firstItem="hyu-To-uTb" firstAttribute="centerX" secondItem="U7w-dh-xNx" secondAttribute="centerX" id="INH-Kk-qEF"/>
+                            <constraint firstItem="U7w-dh-xNx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="Ibt-gA-M0h"/>
+                            <constraint firstItem="bSR-2N-BzL" firstAttribute="centerX" secondItem="hyu-To-uTb" secondAttribute="centerX" id="IdP-yB-FbD"/>
+                            <constraint firstItem="900-94-lWe" firstAttribute="top" secondItem="bSR-2N-BzL" secondAttribute="bottom" id="P30-jy-l1u"/>
+                            <constraint firstItem="U7w-dh-xNx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="RKt-dL-mbH"/>
+                            <constraint firstItem="v6k-3n-Qf0" firstAttribute="top" secondItem="bfr-u0-paI" secondAttribute="bottom" id="UeB-Fa-pV3"/>
+                            <constraint firstItem="bfr-u0-paI" firstAttribute="top" secondItem="g8F-kt-7B7" secondAttribute="bottom" id="bW3-eN-ea4"/>
+                            <constraint firstItem="6MG-XI-Xbi" firstAttribute="top" secondItem="900-94-lWe" secondAttribute="bottom" id="h7b-wr-VOK"/>
+                            <constraint firstItem="hyu-To-uTb" firstAttribute="top" secondItem="U7w-dh-xNx" secondAttribute="bottom" id="iYa-wh-XIL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gSn-jl-rVo" secondAttribute="bottom" constant="20" id="kCY-RH-gui"/>
+                            <constraint firstItem="g8F-kt-7B7" firstAttribute="top" secondItem="6MG-XI-Xbi" secondAttribute="bottom" id="ksG-Ml-2om"/>
+                            <constraint firstItem="bfr-u0-paI" firstAttribute="centerX" secondItem="g8F-kt-7B7" secondAttribute="centerX" id="sqJ-gC-g2f"/>
+                            <constraint firstItem="g8F-kt-7B7" firstAttribute="centerX" secondItem="6MG-XI-Xbi" secondAttribute="centerX" id="vos-Yx-IAr"/>
+                            <constraint firstItem="v6k-3n-Qf0" firstAttribute="centerX" secondItem="bfr-u0-paI" secondAttribute="centerX" id="xLH-68-195"/>
+                            <constraint firstItem="gSn-jl-rVo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="z1r-EJ-WKS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gSn-jl-rVo" secondAttribute="trailing" id="zb3-ve-6hJ"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-39.130434782608695" y="69.642857142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

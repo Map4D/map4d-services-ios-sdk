@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Map4dServicesSignature.h"
 
 //! Project version number for Map4dServices.
 FOUNDATION_EXPORT double Map4dServicesVersionNumber;
