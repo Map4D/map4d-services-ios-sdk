@@ -2,12 +2,10 @@
 //  Map4dServices.h
 //  Map4dServices
 //
-//  Created by Sua Le on 11/15/19.
-//  Copyright © 2019 Sua Le. All rights reserved.
+//  Created by Huy Dang on 12/20/21.
 //
 
 #import <Foundation/Foundation.h>
-#import "Map4dServicesSignature.h"
 
 //! Project version number for Map4dServices.
 FOUNDATION_EXPORT double Map4dServicesVersionNumber;
@@ -17,4 +15,10 @@ FOUNDATION_EXPORT const unsigned char Map4dServicesVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <Map4dServices/PublicHeader.h>
 
+#import "MFServiceTask.h"
+#import "MFServiceError.h"
+#import "MFRequestParams.h"
 
+#import "MFServices.h"
+#import "MFPlacesService.h"
+#import "MFDirectionsService.h"
