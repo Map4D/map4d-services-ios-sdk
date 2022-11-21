@@ -43,5 +43,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>Map4dServicesAccessKey</key>
+	<string>YOUR_SERVICES_KEY</string>
 </dict>
 </plist>

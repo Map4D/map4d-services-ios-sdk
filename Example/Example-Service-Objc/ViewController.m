@@ -6,7 +6,8 @@
 //
 
 #import "ViewController.h"
-#import <CoreLocation/CoreLocation.h>
+#import <Map4dServices/Map4dServices.h>
+
 @import Map4dServices;
 
 @interface ViewController ()
@@ -17,7 +18,7 @@
 
 - (void)viewDidLoad {
   [super viewDidLoad];
-  // Do any additional setup after loading the view.
+  NSLog(@"Services version: %@", MFServices.version);
 }
 
 - (IBAction)didTapRoute:(id)sender {
@@ -53,24 +54,22 @@
 }
 
 - (void) direction {
-  MFWaypoint * waypoints1 = [[MFWaypoint alloc] initWithCoordinate:CLLocationCoordinate2DMake(16.07019138675, 108.169161586766) name:@""];
-  MFWaypoint * waypoints2 = [[MFWaypoint alloc] initWithCoordinate:CLLocationCoordinate2DMake(16.067057237614, 108.198086617386) name:@""];
-  NSArray* arrs = [[NSArray alloc] initWithObjects:waypoints1, waypoints2, nil];
+  MFLocationComponent * waypoints1 = [[MFLocationComponent alloc] initWithCoordinate:CLLocationCoordinate2DMake(16.07019138675, 108.169161586766)];
+  MFLocationComponent * waypoints2 = [[MFLocationComponent alloc] initWithCoordinate:CLLocationCoordinate2DMake(16.067057237614, 108.198086617386)];
   
-  MFDirectionOptions* request = [[MFDirectionOptions alloc] init];
-  request.waypoints = arrs;
-  MFDirectionService* directionService = [[MFDirectionService alloc] init];
-  [directionService routeWithOptions:request completion:^(NSArray<MFRoute *> * routes, id<MFServiceError> err) {
-    NSUInteger count = routes.count;
+  MFDirectionsParams* params = [[MFDirectionsParams alloc] initWithOrigin:waypoints1 destination:waypoints2];
+  MFDirectionsService* directionService = [[MFDirectionsService alloc] init];
+  [directionService fetchDirectionsWithParams:params completionHandler:^(id<MFDirectionsResult> _Nullable result, id<MFServiceError> _Nullable err) {
+    NSArray<id<MFRouteResult>> *routes = result.routes;
+    NSUInteger count = result.routes.count;
     for (int i = 0; i < count; i++) {
       NSLog(@"-------------------------------------------");
-      MFRoute * route = [routes objectAtIndex:i];
+      id<MFRouteResult> route = [routes objectAtIndex:i];
       NSLog(@"%@", route.summary);
-      NSArray * overviewCoordinates = route.overviewCoordinates;
+      NSArray<MFLocationComponent *> *overviewCoordinates = route.snappedLocations;
       for (int j = 0; j < overviewCoordinates.count; j++) {
-        id overviewCoordinate = [overviewCoordinates objectAtIndex:j];
-        CLLocationCoordinate2D loc;
-        [overviewCoordinate getValue:&loc];
+        MFLocationComponent *overviewCoordinate = [overviewCoordinates objectAtIndex:j];
+        CLLocationCoordinate2D loc = overviewCoordinate.coordinate;
         NSLog(@"lat: %f lng: %f", loc.latitude, loc.longitude);
       }
     }
@@ -78,49 +77,44 @@
 }
 
 -(void) distanceMatrix {
-  MFWaypoint *origin1 = [[MFWaypoint alloc] initWithCoordinate: CLLocationCoordinate2DMake(16.07019138675, 108.169161586766) name:@""];
-  MFWaypoint *origin2 = [[MFWaypoint alloc] initWithCoordinate: CLLocationCoordinate2DMake(16.067057237614, 108.198086617386) name:@""];
-  MFWaypoint *destination1 = [[MFWaypoint alloc] initWithCoordinate: CLLocationCoordinate2DMake(16.075225158325, 108.207924657001) name:@""];
-  MFWaypoint *destination2 = [[MFWaypoint alloc] initWithCoordinate: CLLocationCoordinate2DMake(16.075367353035, 108.222074333984) name:@""];
+  MFLocationComponent *origin1 = [[MFLocationComponent alloc] initWithCoordinate: CLLocationCoordinate2DMake(16.07019138675, 108.169161586766)];
+  MFLocationComponent *origin2 = [[MFLocationComponent alloc] initWithCoordinate: CLLocationCoordinate2DMake(16.067057237614, 108.198086617386)];
+  MFLocationComponent *destination1 = [[MFLocationComponent alloc] initWithCoordinate: CLLocationCoordinate2DMake(16.075225158325, 108.207924657001)];
+  MFLocationComponent *destination2 = [[MFLocationComponent alloc] initWithCoordinate: CLLocationCoordinate2DMake(16.075367353035, 108.222074333984)];
   NSArray *origins = [[NSArray alloc] initWithObjects: origin1, origin2, nil];
   NSArray *destinations = [[NSArray alloc] initWithObjects: destination1, destination2, nil];
   
-  MFDistanceMatrixOptions *options = [[MFDistanceMatrixOptions alloc] initWithOrigins:origins destinations:destinations];
+  MFDistanceMatrixParams *options = [[MFDistanceMatrixParams alloc] initWithOrigins:origins destinations:destinations];
   [options setMode: MFTravelModeCar];
-  [options setLanguage: @"vi"];
-  MFDistanceMatrixService *distanceMatrixService = [[MFDistanceMatrixService alloc] init];
-  [distanceMatrixService getDistanceMatrixWithOptions:options completion:^(MFDistanceMatrix * distanceMatrix, id<MFServiceError> error) {
+  [options setLanguage:MFLanguageResultVietnamese];
+  
+  MFDirectionsService *distanceMatrixService = [[MFDirectionsService alloc] init];
+  [distanceMatrixService fetchDistanceMatrixWithParams:options completionHandler:^(id<MFDistanceMatrixResult>  _Nullable distanceMatrix, id<MFServiceError>  _Nullable error) {
     NSInteger rowCount = distanceMatrix.rows.count;
     NSLog(@"-------------------------------------------");
     for (int i = 0; i < rowCount; i++) {
       NSInteger originCount = [[[[distanceMatrix rows] objectAtIndex: i] elements] count];
       for (int j = 0; j < originCount; j++) {
-        NSString * status = [[[[[distanceMatrix rows] objectAtIndex: i] elements] objectAtIndex: j] status];
         NSString * distance = [[[[[[distanceMatrix rows] objectAtIndex: i] elements] objectAtIndex: j] distance] text];
         NSString * duration = [[[[[[distanceMatrix rows] objectAtIndex: i] elements] objectAtIndex: j] duration] text];
-        NSLog(@"status: %@ - distance: %@ - duration: %@", status, distance, duration);
+        NSLog(@"distance: %@ - duration: %@", distance, duration);
       }
     }
   }];
 }
 
 -(void) geocoding {
-  MFGeocodeService *service = [[MFGeocodeService alloc] init];
-  MFGeocodeOptions *options = [[MFGeocodeOptions alloc] init];
+  MFPlacesService *service = [[MFPlacesService alloc] init];
+  MFGeocodeParams *params = [[MFGeocodeParams alloc] initWithLocation:[[MFLocationComponent alloc] initWithLatitude:16.024634 longitude:108.209217]];
+  params.address = @"31 Lê Văn Duyệt, Phường Nại Hiên Đông, Quận Sơn Trà, Thành Phố Đà Nẵng";
   
-  CLLocation *location = [[CLLocation alloc] initWithLatitude: 16.024634 longitude: 108.209217];
-  NSString *address = @"31 Lê Văn Duyệt, Phường Nại Hiên Đông, Quận Sơn Trà, Thành Phố Đà Nẵng";
   CLLocation *southWest = [[CLLocation alloc] initWithLatitude: 16.056453967981348 longitude: 108.19387435913086];
   CLLocation *northEast = [[CLLocation alloc] initWithLatitude: 16.093031550262133 longitude: 108.25927734375];
+  params.viewbox = [[MFViewboxComponent alloc] initWithSouthwest:southWest.coordinate northeast:northEast.coordinate];
   
-  [options setLocation: location];
-  [options setAddress: address];
-  [options setSouthWest: southWest];
-  [options setNorthEast: northEast];
-  [service geocodeWithOptions:options completion:^(NSArray<MFPlace *> * places, id<MFServiceError> error) {
-    
+  [service geocodingWithParams:params completionHandler:^(NSArray<id<MFGeocodeResult>> * _Nullable places, id<MFServiceError>  _Nullable error) {
     if (error != nil) {
-      NSLog(@"AutoSuggest Error: %@", error);
+      NSLog(@"Error: %@", error);
       return;
     }
     if (places == nil) {
@@ -128,17 +122,17 @@
       return;
     }
     for (int i = 0; i < places.count; i++) {
-      MFPlace* place = [places objectAtIndex:i];
+      id<MFGeocodeResult> place = [places objectAtIndex:i];
       NSLog(@"Place: %@, %@, %@, (%f,%f)", place.id, place.types, place.address, place.location.latitude, place.location.longitude);
     }
   }];
 }
 
-- (void) autoSuggest:(NSString*) text {
-  MFAutocompleteService* service = [[MFAutocompleteService alloc] init];
-  MFQueryAutocompletionOptions* options = [[MFQueryAutocompletionOptions alloc] initWithText:text location:nil];
+- (void) autoSuggest:(NSString*)text {
+  MFPlacesService* service = [[MFPlacesService alloc] init];
+  MFSuggestionParams* params = [[MFSuggestionParams alloc] initWithText:text];
   
-  [service getQueryPredictionsWithOptions:options completion:^(NSArray<MFPlace *> * places, id<MFServiceError> error) {
+  [service fetchSuggestionWithParams:params completionHandler:^(NSArray<id<MFSuggestionResult>> * _Nullable places, id<MFServiceError>  _Nullable error) {
     if (error != nil) {
       NSLog(@"AutoSuggest Error: %@", error);
       return;
@@ -149,7 +143,7 @@
     }
     
     for (int i = 0; i < places.count; i++) {
-      MFPlace* place = [places objectAtIndex:i];
+      id<MFSuggestionResult> place = [places objectAtIndex:i];
       NSLog(@"Place: %@, %@, %@, %f-%f", place.id, place.types, place.address, place.location.latitude, place.location.longitude);
     }
   }];
@@ -157,13 +151,13 @@
 
 - (void)getPlaceDetails:(NSString*)placeId {
   MFPlacesService* service = [[MFPlacesService alloc] init];
-  [service getDetailsWithPlaceId:placeId completion:^(MFPlaceDetails * place, id<MFServiceError> err) {
+  [service fetchPlaceDetailWithPlaceId:placeId completionHandler:^(id<MFPlaceDetailResult>  _Nullable place, id<MFServiceError>  _Nullable err) {
     if (err != nil) {
       NSLog(@"Get place details error: %@", err);
       return;
     }
     NSLog(@"Place details: %@", place);
-    NSArray<MFPlacePhotoInfo*>* photos = place.photos;
+    NSArray<id<MFPlacePhotoResult>> *photos = place.photos;
     for (int i = 0; i < [photos count]; i++) {
       NSLog(@"Photo %d: %s", i, [[photos objectAtIndex:i].url UTF8String]);
     }
@@ -172,8 +166,9 @@
 
 - (void)getTextSearch:(NSString*) text {
   MFPlacesService* service = [[MFPlacesService alloc] init];
-  MFTextSearchOptions* options = [[MFTextSearchOptions alloc] initWithText:text];
-  [service textSearchWithOptions:options completion:^(NSArray<MFPlace *> * places, id<MFServiceError> error) {
+  MFTextSearchParams* params = [[MFTextSearchParams alloc] initWithText:text];
+  
+  [service searchTextWithParams:params completionHandler:^(NSArray<id<MFPlaceResult>> * _Nullable places, id<MFServiceError>  _Nullable error) {
     if (error != nil) {
       NSLog(@"Text Search error: %@", error);
       return;
@@ -186,9 +181,10 @@
 
 - (void)nearbySearch {
   MFPlacesService* service = [[MFPlacesService alloc] init];
-  MFNearbySearchOptions* options = [[MFNearbySearchOptions alloc] initWithLocation:CLLocationCoordinate2DMake(16.036461, 108.218159) radius:500];
-  options.text = @"cafe";
-  [service nearbySearchWithOptions:options completion:^(NSArray<MFPlace *> * places, id<MFServiceError> error) {
+  MFNearbySearchParams* params = [[MFNearbySearchParams alloc] initWithLocation:[[MFLocationComponent alloc] initWithCoordinate:CLLocationCoordinate2DMake(16.036461, 108.218159)]
+                                                                          radius:500
+                                                                            text:@"cafe"];
+  [service searchNearbyWithParams:params completionHandler:^(NSArray<id<MFPlaceResult>> * _Nullable places, id<MFServiceError>  _Nullable error) {
     if (error != nil) {
       NSLog(@"Nearby Search error: %@", error);
       return;
@@ -203,16 +199,16 @@
   MFPlacesService* service = [[MFPlacesService alloc] init];
   CLLocationCoordinate2D southWest = CLLocationCoordinate2DMake(16.056453967981348, 108.19387435913);
   CLLocationCoordinate2D northEast = CLLocationCoordinate2DMake(16.093031550262133, 108.25927734375);
-  MFViewboxSearchOptions* options = [[MFViewboxSearchOptions alloc] initWithSouthWest:southWest northEast:northEast];
-  options.types = [[NSArray alloc] initWithObjects:@"cafe", nil];
+  MFViewboxComponent *viewbox = [[MFViewboxComponent alloc] initWithSouthwest:southWest northeast:northEast];
+  MFViewboxSearchParams* options = [[MFViewboxSearchParams alloc] initWithViewbox:viewbox types:[[NSArray alloc] initWithObjects:@"cafe", nil]];
   
-  [service viewboxSearchWithOptions:options completion:^(NSArray<MFPlace *> * places, id<MFServiceError> error) {
+  [service searchViewboxWithParams:options completionHandler:^(NSArray<id<MFPlaceResult>> * _Nullable places, id<MFServiceError>  _Nullable error) {
     if (error != nil) {
       NSLog(@"Viewbox Search error: %@", error);
       return;
     }
     for (int i = 0; i < [places count]; i++) {
-      MFPlace* place = [places objectAtIndex:i];
+      id<MFPlaceResult> place = [places objectAtIndex:i];
       NSLog(@"Place [%d] : %@", i, place);
     }
   }];

@@ -6,7 +6,7 @@ project 'Example-Service-Swift.xcodeproj'
 project 'Example-Service-Objc.xcodeproj'
 
 def common_pods
-  pod 'Map4dServices', '~> 1.0.0'
+  pod 'Map4dServices', '~> 2.0.0'
 end 
 
 target 'Example-Service-Swift' do
