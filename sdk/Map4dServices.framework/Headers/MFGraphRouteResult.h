@@ -12,16 +12,22 @@
 #import "MFRouteDescriptionResult.h"
 #import "MFLocationComponent.h"
 
-@protocol MFGraphRouteResult
+NS_ASSUME_NONNULL_BEGIN
 
-@property(nonatomic, readonly, nonnull) NSString *id;
-@property(nonatomic, readonly, nonnull) id<MFRouteDescriptionResult> distance;
-@property(nonatomic, readonly, nonnull) id<MFRouteDescriptionResult> duration;
-@property(nonatomic, readonly, nonnull) NSString *encodedPolyline; /* polyline */
-//@property(nonatomic, readonly, nonnull) NSString *status;//TODO: status
+@interface MFGraphRouteResult : NSObject
 
-- (NSArray<MFLocationComponent *> *_Nonnull)polyline;
+@property(nonatomic, readonly) NSString *id;
+@property(nonatomic, readonly) MFRouteDescriptionResult *distance;
+@property(nonatomic, readonly) MFRouteDescriptionResult *duration;
+@property(nonatomic, readonly) NSString *encodedPolyline; /* polyline */
+//@property(nonatomic, readonly) NSString *status;//TODO: status
+
+- (instancetype)init NS_UNAVAILABLE;
+
+- (NSArray<MFLocationComponent *> *)polyline;
 
 @end
+
+NS_ASSUME_NONNULL_END
 
 #endif /* MFGraphRouteResult_h */

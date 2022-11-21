@@ -12,15 +12,21 @@
 #import "MFRouteDescriptionResult.h"
 #import "MFLocationComponent.h"
 
-@protocol MFRouteETAResult
+NS_ASSUME_NONNULL_BEGIN
 
-@property(nonatomic, readonly, nonnull) MFLocationComponent *location;
-@property(nonatomic, readonly, nonnull) id<MFRouteDescriptionResult> distance;
-@property(nonatomic, readonly, nonnull) id<MFRouteDescriptionResult> duration;
-@property(nonatomic, readonly, nonnull) NSString *encodedPolyline;
+@interface MFRouteETAResult : NSObject
 
-- (NSArray<MFLocationComponent *> *_Nonnull)polyline;
+@property(nonatomic, readonly) MFLocationComponent *location;
+@property(nonatomic, readonly) MFRouteDescriptionResult *distance;
+@property(nonatomic, readonly) MFRouteDescriptionResult *duration;
+@property(nonatomic, readonly) NSString *encodedPolyline;
+
+- (instancetype)init NS_UNAVAILABLE;
+
+- (NSArray<MFLocationComponent *> *)polyline;
 
 @end
+
+NS_ASSUME_NONNULL_END
 
 #endif /* MFRouteETAResult_h */

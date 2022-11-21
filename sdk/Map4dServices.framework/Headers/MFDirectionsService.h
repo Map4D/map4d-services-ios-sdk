@@ -21,13 +21,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^MFDirectionsCallback)(id<MFDirectionsResult> _Nullable result, id<MFServiceError> _Nullable error);
+typedef void(^MFDirectionsCallback)(MFDirectionsResult *_Nullable directions, id<MFServiceError> _Nullable error);
 
-typedef void(^MFDistanceMatrixCallback)(id<MFDistanceMatrixResult> _Nullable result, id<MFServiceError> _Nullable error);
+typedef void(^MFDistanceMatrixCallback)(MFDistanceMatrixResult *_Nullable distanceMatrix, id<MFServiceError> _Nullable error);
 
-typedef void(^MFGraphRouteCallback)(NSArray<id<MFGraphRouteResult>> *_Nullable results, id<MFServiceError> _Nullable error);
+typedef void(^MFGraphRouteCallback)(NSArray<MFGraphRouteResult *> *_Nullable graphRoutes, id<MFServiceError> _Nullable error);
 
-typedef void(^MFRouteETACallback)(NSArray<id<MFRouteETAResult>> *_Nullable results, id<MFServiceError> _Nullable error);
+typedef void(^MFRouteETACallback)(NSArray<MFRouteETAResult *> *_Nullable etaRoutes, id<MFServiceError> _Nullable error);
 
 @interface MFDirectionsService : NSObject
 

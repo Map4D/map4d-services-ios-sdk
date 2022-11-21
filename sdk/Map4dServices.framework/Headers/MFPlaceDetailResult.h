@@ -13,22 +13,27 @@
 #import "MFPlacePhotoResult.h"
 #import "MFPlaceAddressComponentResult.h"
 
-@protocol MFPlaceDetailResult
+NS_ASSUME_NONNULL_BEGIN
 
-@property(nonatomic, readonly, nonnull) NSString *id;
-@property(nonatomic, readonly, nonnull) NSString *name;
-@property(nonatomic, readonly, nonnull) NSString *address;
-@property(nonatomic, readonly, nonnull) MFLocationComponent *location;
-@property(nonatomic, readonly, nonnull) NSArray<NSString *> *types;
+@interface MFPlaceDetailResult : NSObject
+
+@property(nonatomic, readonly) NSString *id;
+@property(nonatomic, readonly) NSString *name;
+@property(nonatomic, readonly) NSString *address;
+@property(nonatomic, readonly) MFLocationComponent *location;
+@property(nonatomic, readonly) NSArray<NSString *> *types;
 
 @property(nonatomic, readonly, nullable) NSString *desc;
 @property(nonatomic, readonly, nullable) NSArray<NSString *> *tags;
-@property(nonatomic, readonly, nullable) NSArray<id<MFPlaceMetadataResult>> *metadatas;
-@property(nonatomic, readonly, nullable) NSArray<id<MFPlacePhotoResult>> *photos;
-@property(nonatomic, readonly, nullable) NSArray<id<MFPlaceAddressComponentResult>> *addressComponents;
+@property(nonatomic, readonly, nullable) NSArray<MFPlaceMetadataResult *> *metadatas;
+@property(nonatomic, readonly, nullable) NSArray<MFPlacePhotoResult *> *photos;
+@property(nonatomic, readonly, nullable) NSArray<MFPlaceAddressComponentResult *> *addressComponents;
 @property(nonatomic, readonly, nullable) NSString *objectId;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
+NS_ASSUME_NONNULL_END
 
 #endif /* MFPlaceDetailResult_h */

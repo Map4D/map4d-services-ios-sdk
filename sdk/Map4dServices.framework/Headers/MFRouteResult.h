@@ -12,17 +12,23 @@
 #import "MFRouteDescriptionResult.h"
 #import "MFLocationComponent.h"
 
-@protocol MFRouteResult
+NS_ASSUME_NONNULL_BEGIN
 
-@property(nonatomic, readonly, nonnull) NSArray<id<MFRouteLegResult>> *legs;
-@property(nonatomic, readonly, nonnull) NSString *encodedPolyline; /* overviewPolyline */
-@property(nonatomic, readonly, nonnull) NSString *summary;
-@property(nonatomic, readonly, nonnull) id<MFRouteDescriptionResult> distance;
-@property(nonatomic, readonly, nonnull) id<MFRouteDescriptionResult> duration;
-@property(nonatomic, readonly, nonnull) NSArray<MFLocationComponent *> *snappedLocations; /* snappedWaypoints */
+@interface MFRouteResult : NSObject
 
-- (NSArray<MFLocationComponent *> *_Nonnull)polyline;
+@property(nonatomic, readonly) NSArray<MFRouteLegResult *> *legs;
+@property(nonatomic, readonly) NSString *encodedPolyline; /* overviewPolyline */
+@property(nonatomic, readonly) NSString *summary;
+@property(nonatomic, readonly) MFRouteDescriptionResult *distance;
+@property(nonatomic, readonly) MFRouteDescriptionResult *duration;
+@property(nonatomic, readonly) NSArray<MFLocationComponent *> *snappedLocations; /* snappedWaypoints */
+
+- (instancetype)init NS_UNAVAILABLE;
+
+- (NSArray<MFLocationComponent *> *)polyline;
 
 @end
+
+NS_ASSUME_NONNULL_END
 
 #endif /* MFRouteResult_h */

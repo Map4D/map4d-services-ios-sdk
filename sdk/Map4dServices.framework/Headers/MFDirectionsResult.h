@@ -10,10 +10,16 @@
 
 #import "MFRouteResult.h"
 
-@protocol MFDirectionsResult
+NS_ASSUME_NONNULL_BEGIN
 
-@property(nonatomic, readonly, nullable) NSArray<id<MFRouteResult>> *routes;
+@interface MFDirectionsResult : NSObject
+
+@property(nonatomic, readonly, nullable) NSArray<MFRouteResult *> *routes;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
+
+NS_ASSUME_NONNULL_END
 
 #endif /* MFDirectionsResult_h */

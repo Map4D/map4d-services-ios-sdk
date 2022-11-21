@@ -13,22 +13,28 @@
 #import "MFTravelMode.h"
 #import "MFLocationComponent.h"
 
-@protocol MFRouteStepResult
+NS_ASSUME_NONNULL_BEGIN
 
-@property(nonatomic, readonly, nonnull) id<MFRouteDescriptionResult> distance;
-@property(nonatomic, readonly, nonnull) id<MFRouteDescriptionResult> duration;
+@interface MFRouteStepResult : NSObject
 
-@property(nonatomic, readonly, nonnull) MFLocationComponent *startLocation;
-@property(nonatomic, readonly, nonnull) MFLocationComponent *endLocation;
+@property(nonatomic, readonly) MFRouteDescriptionResult *distance;
+@property(nonatomic, readonly) MFRouteDescriptionResult *duration;
 
-@property(nonatomic, readonly, nonnull) NSString *instructions; /* htmlInstructions */
-@property(nonatomic, readonly, nonnull) NSString *maneuver;
-@property(nonatomic, readonly, nonnull) NSString *encodedPolyline; /* polyline */
-@property(nonatomic, readonly, nonnull) NSString *streetName;
+@property(nonatomic, readonly) MFLocationComponent *startLocation;
+@property(nonatomic, readonly) MFLocationComponent *endLocation;
+
+@property(nonatomic, readonly) NSString *instructions; /* htmlInstructions */
+@property(nonatomic, readonly) NSString *maneuver;
+@property(nonatomic, readonly) NSString *encodedPolyline; /* polyline */
+@property(nonatomic, readonly) NSString *streetName;
 @property(nonatomic, readonly) MFTravelMode mode; /* travelMode */
 
-- (NSArray<MFLocationComponent *> *_Nonnull)polyline;
+- (instancetype)init NS_UNAVAILABLE;
+
+- (NSArray<MFLocationComponent *> *)polyline;
 
 @end
+
+NS_ASSUME_NONNULL_END
 
 #endif /* MFRouteStepResult_h */

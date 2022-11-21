@@ -11,6 +11,7 @@
 #import "MFServiceTask.h"
 #import "MFServiceError.h"
 #import "MFServiceRequest.h"
+#import "MFServiceSettings.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,8 +20,10 @@ typedef void(^MFServicesDataTaskCallback)(NSData * _Nullable data, id<MFServiceE
 @interface MFServices : NSObject
 
 @property(class, nonatomic, readonly) NSString *version;
+@property(class, nonatomic, readonly) MFServiceSettings *settings;
 
-- (id<MFServiceTask>)dataTaskWithRequest:(MFServiceRequest *)request completionHandler:(MFServicesDataTaskCallback)completionHandler;
+- (id<MFServiceTask>)dataTaskWithRequest:(MFServiceRequest *)request
+                       completionHandler:(MFServicesDataTaskCallback)completionHandler;
 
 @end
 

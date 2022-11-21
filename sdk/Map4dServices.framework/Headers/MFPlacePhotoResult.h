@@ -10,11 +10,17 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol MFPlacePhotoResult
+NS_ASSUME_NONNULL_BEGIN
 
-@property (nonatomic, readonly, nonnull) NSString *url;
-@property (nonatomic, readonly, nonnull) NSString *name;
+@interface MFPlacePhotoResult : NSObject
+
+@property (nonatomic, readonly) NSString *url;
+@property (nonatomic, readonly) NSString *name;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
+
+NS_ASSUME_NONNULL_END
 
 #endif /* MFPlacePhotoResult_h */

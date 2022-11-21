@@ -11,13 +11,19 @@
 #import <CoreLocation/CoreLocation.h>
 #import "MFDistanceMatrixRowResult.h"
 
-@protocol MFDistanceMatrixResult
+NS_ASSUME_NONNULL_BEGIN
+
+@interface MFDistanceMatrixResult : NSObject
 
 //TODO: address
 //@property(nonatomic, readonly, nonnull) NSArray<CLLocation *> *originAddresses
 //@property(nonatomic, readonly, nonnull) NSArray<CLLocation *> *destinationAddresses
-@property(nonatomic, readonly, nullable) NSArray<id<MFDistanceMatrixRowResult>> *rows; /* routeRows */
+@property(nonatomic, readonly, nullable) NSArray<MFDistanceMatrixRowResult *> *rows; /* routeRows */
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
+
+NS_ASSUME_NONNULL_END
 
 #endif /* MFDistanceMatrixResult_h */

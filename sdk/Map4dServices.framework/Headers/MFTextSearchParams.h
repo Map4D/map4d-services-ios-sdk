@@ -10,6 +10,7 @@
 
 #import "MFRequestParams.h"
 #import "MFLocationComponent.h"
+#import "MFTypeSearchMatching.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /* Types to search */
 @property(nonatomic, copy, nullable) NSArray<NSString *> *types;
+
+/* Matching one of types or all types. Default is All */
+@property(nonatomic) MFTypeSearchMatching typeSearchMatching;
 
 /* Datetime to search */
 @property(nonatomic, copy, nullable) NSDate *datetime;

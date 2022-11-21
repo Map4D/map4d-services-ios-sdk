@@ -31,7 +31,7 @@ typedef NS_ENUM(NSUInteger, MFRequestMethod) {
 /* HTTP request parameters */
 @property(nonatomic, strong, nullable) id<MFRequestParams> params;
 
-/* Request timeout. Default is 10 */
+/* Request timeout. Default is MFServiceSettings.requestTimeout value */
 @property(nonatomic) NSTimeInterval timeout;
 
 - (instancetype)initWithPath:(NSString *)path;

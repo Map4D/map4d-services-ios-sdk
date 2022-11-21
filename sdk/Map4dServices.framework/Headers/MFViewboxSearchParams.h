@@ -10,6 +10,7 @@
 
 #import "MFRequestParams.h"
 #import "MFViewboxComponent.h"
+#import "MFTypeSearchMatching.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,6 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /* Place types. e.g: holtel, cafe, atm, ... */
 @property(nonatomic, copy, nullable) NSArray<NSString *> *types;
+
+/* Matching one of types or all types. Default is All */
+@property(nonatomic) MFTypeSearchMatching typeSearchMatching;
 
 /* Place tags */
 @property(nonatomic, copy, nullable) NSArray<NSString *> *tags;

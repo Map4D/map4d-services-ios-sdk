@@ -22,17 +22,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^MFSuggestionCallback)(NSArray<id<MFSuggestionResult>> *_Nullable results, id<MFServiceError> _Nullable error);
+typedef void(^MFSuggestionCallback)(NSArray<MFSuggestionResult *> *_Nullable suggestions, id<MFServiceError> _Nullable error);
 
-typedef void(^MFPlaceDetailCallback)(id<MFPlaceDetailResult> _Nullable result, id<MFServiceError> _Nullable error);
+typedef void(^MFPlaceDetailCallback)(MFPlaceDetailResult *_Nullable placeDetail, id<MFServiceError> _Nullable error);
 
-typedef void(^MFTextSearchCallback)(NSArray<id<MFPlaceResult>> *_Nullable results, id<MFServiceError> _Nullable error);
+typedef void(^MFTextSearchCallback)(NSArray<MFPlaceResult *> *_Nullable places, id<MFServiceError> _Nullable error);
 
-typedef void(^MFNearbySearchCallback)(NSArray<id<MFPlaceResult>> *_Nullable results, id<MFServiceError> _Nullable error);
+typedef void(^MFNearbySearchCallback)(NSArray<MFPlaceResult *> *_Nullable places, id<MFServiceError> _Nullable error);
 
-typedef void(^MFViewboxSearchCallback)(NSArray<id<MFPlaceResult>> *_Nullable results, id<MFServiceError> _Nullable error);
+typedef void(^MFViewboxSearchCallback)(NSArray<MFPlaceResult *> *_Nullable places, id<MFServiceError> _Nullable error);
 
-typedef void(^MFGeocodeCallback)(NSArray<id<MFGeocodeResult>> *_Nullable results, id<MFServiceError> _Nullable error);
+typedef void(^MFGeocodeCallback)(NSArray<MFGeocodeResult *> *_Nullable geocodes, id<MFServiceError> _Nullable error);
 
 
 @interface MFPlacesService : NSObject

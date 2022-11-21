@@ -10,10 +10,16 @@
 
 #import "MFDistanceMatrixElementResult.h"
 
-@protocol MFDistanceMatrixRowResult
+NS_ASSUME_NONNULL_BEGIN
 
-@property(nonatomic, readonly, nullable) NSArray<id<MFDistanceMatrixElementResult>> *elements;
+@interface MFDistanceMatrixRowResult : NSObject
+
+@property(nonatomic, readonly, nullable) NSArray<MFDistanceMatrixElementResult *> *elements;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
+
+NS_ASSUME_NONNULL_END
 
 #endif /* MFDistanceMatrixRowResult_h */

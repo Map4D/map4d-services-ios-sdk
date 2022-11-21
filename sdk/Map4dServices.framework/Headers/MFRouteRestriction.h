@@ -13,12 +13,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSUInteger, MFRouteType) {
-  MFRouteTypeMotorway,
-  MFRouteTypeTrunk,
-  MFRouteTypeFerry,
-  MFRouteTypeBridge,
-  MFRouteTypeTunnel
+typedef NS_OPTIONS(NSUInteger, MFRouteType) {
+  MFRouteTypeNone = 0,
+  MFRouteTypeMotorway = 1U << 0,
+  MFRouteTypeTrunk = 1U << 1,
+  MFRouteTypeFerry = 1U << 2,
+  MFRouteTypeBridge = 1U << 3,
+  MFRouteTypeTunnel = 1U << 4,
 };
 
 @interface MFRouteRestriction : NSObject
@@ -31,7 +32,7 @@ typedef NS_ENUM(NSUInteger, MFRouteType) {
 
 @property(nonatomic, readonly, nullable) NSArray<MFLocationComponent *> *path;
 
-- (instancetype)init NS_UNAVAILABLE;
+@property(nonatomic) MFRouteType routeTypes;
 
 /* Restriction point */
 - (instancetype)initWithLocation:(MFLocationComponent *)location;
@@ -45,11 +46,14 @@ typedef NS_ENUM(NSUInteger, MFRouteType) {
 /* Restriction polygon area */
 - (instancetype)initWithPath:(NSArray<MFLocationComponent *> *)path;
 
+/* Restriction route types */
+- (instancetype)initWithRouteTypes:(MFRouteType)routeTypes;
+
 /* Restriction route type */
-- (instancetype)initWithRouteType:(MFRouteType)type;
+- (instancetype)initWithRouteType:(MFRouteType)type DEPRECATED_MSG_ATTRIBUTE("Use common init and set 'routeTypes' instead.");
 
 /* Add route type restriction */
-- (void)avoidRouteType:(MFRouteType)type;
+- (void)avoidRouteType:(MFRouteType)type NS_SWIFT_NAME(avoid(_:)) DEPRECATED_MSG_ATTRIBUTE("Set 'routeTypes' instead.");
 
 @end
 

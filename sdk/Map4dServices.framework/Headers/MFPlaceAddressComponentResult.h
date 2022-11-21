@@ -10,11 +10,17 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol MFPlaceAddressComponentResult
+NS_ASSUME_NONNULL_BEGIN
 
-@property (nonatomic, readonly, nonnull) NSString *name;
-@property (nonatomic, readonly, nonnull) NSArray<NSString *> *types;
+@interface MFPlaceAddressComponentResult : NSObject
+
+@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) NSArray<NSString *> *types;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
+
+NS_ASSUME_NONNULL_END
 
 #endif /* MFPlaceAddressComponentResult_h */

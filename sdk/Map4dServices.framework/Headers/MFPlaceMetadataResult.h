@@ -10,15 +10,20 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol MFPlaceMetadataResult
+NS_ASSUME_NONNULL_BEGIN
 
-@property (nonatomic, readonly, nonnull) NSString *id;
-@property (nonatomic, readonly, nonnull) NSString *name;
-@property (nonatomic, readonly, nonnull) NSString *type;
-@property (nonatomic, readonly, nonnull) NSString *content;
+@interface MFPlaceMetadataResult : NSObject
+
+@property (nonatomic, readonly) NSString *id;
+@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) NSString *type;
+@property (nonatomic, readonly) NSString *content;
 @property (nonatomic, readonly) NSInteger order;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
+NS_ASSUME_NONNULL_END
 
 #endif /* MFPlaceMetadataResult_h */

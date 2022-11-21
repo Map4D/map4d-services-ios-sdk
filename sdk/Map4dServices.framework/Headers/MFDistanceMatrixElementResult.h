@@ -10,13 +10,18 @@
 
 #import "MFRouteDescriptionResult.h"
 
-@protocol MFDistanceMatrixElementResult
+NS_ASSUME_NONNULL_BEGIN
 
-@property(nonatomic, readonly, nonnull) id<MFRouteDescriptionResult> distance;
-@property(nonatomic, readonly, nonnull) id<MFRouteDescriptionResult> duration;
+@interface MFDistanceMatrixElementResult : NSObject
+
+@property(nonatomic, readonly) MFRouteDescriptionResult *distance;
+@property(nonatomic, readonly) MFRouteDescriptionResult *duration;
 //@property(nonatomic, readonly, nullable) NSString *status;//TODO: check
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
 
+NS_ASSUME_NONNULL_END
 
 #endif /* MFDistanceMatrixElementResult_h */

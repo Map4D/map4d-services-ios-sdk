@@ -10,18 +10,24 @@
 
 #import "MFLocationComponent.h"
 
-@protocol MFSuggestionResult
+NS_ASSUME_NONNULL_BEGIN
+
+@interface MFSuggestionResult : NSObject
 
 @property(nonatomic, readonly, nullable) NSString *id;
 
-@property(nonatomic, readonly, nonnull) NSString *name;
+@property(nonatomic, readonly) NSString *name;
 
-@property(nonatomic, readonly, nonnull) NSString *address;
+@property(nonatomic, readonly) NSString *address;
 
-@property(nonatomic, readonly, nonnull) MFLocationComponent *location;
+@property(nonatomic, readonly) MFLocationComponent *location;
 
-@property(nonatomic, readonly, nonnull) NSArray<NSString *> *types;
+@property(nonatomic, readonly) NSArray<NSString *> *types;
+
+- (instancetype)init NS_UNAVAILABLE;
 
 @end
+
+NS_ASSUME_NONNULL_END
 
 #endif /* MFSuggestionResult_h */
