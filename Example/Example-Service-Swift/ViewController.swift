@@ -152,7 +152,7 @@ class ViewController: UIViewController {
   
   func placeDetails() {
     let service = MFPlacesService()
-    service.fetchPlaceDetail(withPlaceId: "5d0de3c7595b752b54a9a005") { place, error in
+    service.fetchPlaceDetail(withPlaceId: "606399a278f6610549fda8d2") { place, error in
       if error != nil {
         print("Get place details error: \(error!)")
         return
