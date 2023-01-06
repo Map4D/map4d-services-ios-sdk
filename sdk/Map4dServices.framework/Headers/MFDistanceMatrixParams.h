@@ -20,10 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MFDistanceMatrixParams : NSObject <MFRequestParams>
 
 /* Origins source, up to 10 location */
-@property(nonatomic, readonly, nonnull) NSArray<MFLocationComponent *> *origins;
+@property(nonatomic, readonly) NSArray<MFLocationComponent *> *origins;
 
 /* Destinations source, up to 10 location */
-@property(nonatomic, readonly, nonnull) NSArray<MFLocationComponent *> *destinations;
+@property(nonatomic, readonly) NSArray<MFLocationComponent *> *destinations;
 
 /* Mode: car or bike or foot or motorcycle. Default is car */
 @property(nonatomic) MFTravelMode mode;
@@ -37,9 +37,13 @@ NS_ASSUME_NONNULL_BEGIN
 /* Indicates that the calculated distance matrix should avoid */
 @property(nonatomic, strong, nullable) MFRouteRestriction *restriction;
 
+/* Specifies the desired time of departure */
+@property(nonatomic, strong, nullable) NSDate *departureTime;
+
 - (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype)initWithOrigins:(NSArray<MFLocationComponent *> *)origins destinations:(NSArray<MFLocationComponent *> *)destinations;
+- (instancetype)initWithOrigins:(NSArray<MFLocationComponent *> *)origins
+                   destinations:(NSArray<MFLocationComponent *> *)destinations;
 
 - (instancetype)initWithOrigins:(NSArray<MFLocationComponent *> *)origins
                    destinations:(NSArray<MFLocationComponent *> *)destinations

@@ -20,10 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MFDirectionsParams : NSObject <MFRequestParams>
 
 /* Origin location which you wish to calculate directions */
-@property(nonatomic, strong, nonnull) MFLocationComponent *origin;
+@property(nonatomic, strong) MFLocationComponent *origin;
 
 /* Destination location which you wish to calculate directions */
-@property(nonatomic, strong, nonnull) MFLocationComponent *destination;
+@property(nonatomic, strong) MFLocationComponent *destination;
 
 /* Pass through locations between the origin and destination */
 @property(nonatomic, copy, nullable) NSArray<MFLocationComponent *> *waypoints;
@@ -40,9 +40,13 @@ NS_ASSUME_NONNULL_BEGIN
 /* Indicates that the calculated route(s) should avoid */
 @property(nonatomic, strong, nullable) MFRouteRestriction *restriction;
 
+/* Specifies the desired time of departure */
+@property(nonatomic, strong, nullable) NSDate *departureTime;
+
 - (instancetype)init NS_UNAVAILABLE;
 
-- (instancetype)initWithOrigin:(MFLocationComponent *)origin destination:(MFLocationComponent *)destination;
+- (instancetype)initWithOrigin:(MFLocationComponent *)origin
+                   destination:(MFLocationComponent *)destination;
 
 - (instancetype)initWithOrigin:(MFLocationComponent *)origin
                    destination:(MFLocationComponent *)destination

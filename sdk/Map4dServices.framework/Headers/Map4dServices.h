@@ -13,8 +13,6 @@ FOUNDATION_EXPORT double Map4dServicesVersionNumber;
 //! Project version string for Map4dServices.
 FOUNDATION_EXPORT const unsigned char Map4dServicesVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <Map4dServices/PublicHeader.h>
-
 #import "MFServiceTask.h"
 #import "MFServiceError.h"
 #import "MFRequestParams.h"

@@ -14,12 +14,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_OPTIONS(NSUInteger, MFRouteType) {
-  MFRouteTypeNone = 0,
+  MFRouteTypeNone     = 0,
   MFRouteTypeMotorway = 1U << 0,
-  MFRouteTypeTrunk = 1U << 1,
-  MFRouteTypeFerry = 1U << 2,
-  MFRouteTypeBridge = 1U << 3,
-  MFRouteTypeTunnel = 1U << 4,
+  MFRouteTypeTrunk    = 1U << 1,
+  MFRouteTypeFerry    = 1U << 2,
+  MFRouteTypeBridge   = 1U << 3,
+  MFRouteTypeTunnel   = 1U << 4,
+  MFRouteTypeToll     = 1U << 5,
 };
 
 @interface MFRouteRestriction : NSObject
