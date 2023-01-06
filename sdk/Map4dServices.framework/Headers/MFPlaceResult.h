@@ -1,8 +1,8 @@
 //
 //  MFPlaceResult.h
-//  Map4dServices
+//  Map4dServices SDK for iOS
 //
-//  Created by Huy Dang on 12/28/21.
+//  Copyright (c) 2022 IOTLink LLC.
 //
 
 #ifndef MFResultPlace_h

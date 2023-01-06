@@ -1,8 +1,8 @@
 //
 //  MFRouteLegResult.h
-//  Map4dServices
+//  Map4dServices SDK for iOS
 //
-//  Created by Huy Dang on 12/29/21.
+//  Copyright (c) 2022 IOTLink LLC.
 //
 
 #ifndef MFRouteLegResult_h

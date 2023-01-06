@@ -1,8 +1,8 @@
 //
 //  MFDirectionsService.h
-//  Map4dServices
+//  Map4dServices SDK for iOS
 //
-//  Created by Huy Dang on 12/29/21.
+//  Copyright (c) 2022 IOTLink LLC.
 //
 
 #ifndef MFDirectionsService_h
@@ -34,14 +34,16 @@ typedef void(^MFRouteETACallback)(NSArray<MFRouteETAResult *> *_Nullable etaRout
 - (id<MFServiceTask>)fetchDirectionsWithParams:(MFDirectionsParams *)params
                              completionHandler:(MFDirectionsCallback)completionHandler;
 
-- (id<MFServiceTask>)fetchRouteETAWithParams:(MFRouteETAParams *)params
-                           completionHandler:(MFRouteETACallback)completionHandler;
-
 - (id<MFServiceTask>)fetchDistanceMatrixWithParams:(MFDistanceMatrixParams *)params
                                  completionHandler:(MFDistanceMatrixCallback)completionHandler;
 
+- (id<MFServiceTask>)fetchRouteETAWithParams:(MFRouteETAParams *)params
+                           completionHandler:(MFRouteETACallback)completionHandler
+DEPRECATED_MSG_ATTRIBUTE("Route ETA no longer supported. Use Distance Matrix instead.");
+
 - (id<MFServiceTask>)fetchGraphRouteWithParams:(MFGraphRouteParams *)params
-                             completionHandler:(MFGraphRouteCallback)completionHandler;
+                             completionHandler:(MFGraphRouteCallback)completionHandler
+DEPRECATED_MSG_ATTRIBUTE("Graph Route no longer supported. Use Distance Matrix instead.");
 
 @end
 

@@ -1,8 +1,8 @@
 //
 //  MFTypeSearchMatching.h
-//  Map4dServices
+//  Map4dServices SDK for iOS
 //
-//  Created by Huy Dang on 21/11/2022.
+//  Copyright (c) 2022 IOTLink LLC.
 //
 
 #ifndef MFTypeSearchMatching_h
