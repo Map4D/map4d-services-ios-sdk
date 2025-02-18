@@ -1,16 +1,16 @@
 PODS:
-  - Map4dServices (2.1.0)
+  - Map4dServices (2.4.0)
 
 DEPENDENCIES:
-  - Map4dServices (~> 2.1.0)
+  - Map4dServices (~> 2.4.0)
 
 SPEC REPOS:
   trunk:
     - Map4dServices
 
 SPEC CHECKSUMS:
-  Map4dServices: 63c3449a7867f20cf7f0ec028109a979241e754a
+  Map4dServices: ff9d9ca2c4476581cf09d656933f6a571781d0a4
 
-PODFILE CHECKSUM: 84a981299a315647da31a64979502940257b0e62
+PODFILE CHECKSUM: bb6f7be14438a6d7e63c6d9ff4abba9a05125e38
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2
