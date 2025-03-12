@@ -1,0 +1,6 @@
+framework module Map4dServices {
+  umbrella header "Map4dServices.h"
+
+  export *
+  module * { export * }
+}
