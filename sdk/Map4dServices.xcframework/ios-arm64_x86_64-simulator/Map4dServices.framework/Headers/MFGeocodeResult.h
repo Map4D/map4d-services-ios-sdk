@@ -19,8 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, readonly) MFLocationComponent *location;
 @property(nonatomic, readonly) NSString *name;
 @property(nonatomic, readonly) NSString *address;
+@property(nonatomic, readonly) NSString *oldAddress;
 @property(nonatomic, readonly) NSArray<NSString *> *types;
 @property(nonatomic, readonly, nullable) NSArray<MFPlaceAddressComponentResult *> *addressComponents;
+@property(nonatomic, readonly, nullable) NSArray<MFPlaceAddressComponentResult *> *oldAddressComponents;
 
 - (instancetype)init NS_UNAVAILABLE;
 

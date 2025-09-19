@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, readonly) NSString *id;
 @property(nonatomic, readonly) NSString *name;
 @property(nonatomic, readonly) NSString *address;
+@property(nonatomic, readonly) NSString *oldAddress;
 @property(nonatomic, readonly) MFLocationComponent *location;
 @property(nonatomic, readonly) NSArray<NSString *> *types;
 
@@ -28,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, readonly, nullable) NSArray<MFPlaceMetadataResult *> *metadatas;
 @property(nonatomic, readonly, nullable) NSArray<MFPlacePhotoResult *> *photos;
 @property(nonatomic, readonly, nullable) NSArray<MFPlaceAddressComponentResult *> *addressComponents;
+@property(nonatomic, readonly, nullable) NSArray<MFPlaceAddressComponentResult *> *oldAddressComponents;
 @property(nonatomic, readonly, nullable) NSString *objectId;
 
 - (instancetype)init NS_UNAVAILABLE;

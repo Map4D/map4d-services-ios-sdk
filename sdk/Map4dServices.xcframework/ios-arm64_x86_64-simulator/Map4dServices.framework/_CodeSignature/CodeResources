@@ -38,7 +38,7 @@
 		</data>
 		<key>Headers/MFGeocodeResult.h</key>
 		<data>
-		qj0qqNyX24LnE33j/akf36K2M3c=
+		Z5L6n4sblWbTY4USr6gckBbjwmc=
 		</data>
 		<key>Headers/MFLanguageResult.h</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Headers/MFPlaceDetailResult.h</key>
 		<data>
-		xloUBkK1KqGwxgVscfBYr9H/ZL8=
+		SxPywkqOP4+AdH4OYIZGhcb4/BQ=
 		</data>
 		<key>Headers/MFPlaceMetadataResult.h</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Headers/MFPlaceResult.h</key>
 		<data>
-		iHEFRBe7DOzdfoeRn4FvZH/nID0=
+		Afw5REeWevaYkO20r1OnRJlaiiY=
 		</data>
 		<key>Headers/MFPlacesService.h</key>
 		<data>
@@ -130,7 +130,7 @@
 		</data>
 		<key>Headers/MFSuggestionResult.h</key>
 		<data>
-		hsCMVsjzfKEllw0ebosyDMZxLwo=
+		3Vghbzo8fPDUMXnDfJ+ABr+A3dk=
 		</data>
 		<key>Headers/MFTextSearchParams.h</key>
 		<data>
@@ -154,11 +154,11 @@
 		</data>
 		<key>Headers/Map4dServices.h</key>
 		<data>
-		g+P97W++Xor66jxIpug+tAN3g50=
+		+djaAmXMJlw3768lkazeKqCgTZw=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		0F8bFr9dZOQYLJxuadg1ioHUk94=
+		8BS2jjgQP/Ia/n9Tb/uTuiwiv/Q=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -227,7 +227,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			QUnXs4w8kdj7AUDd5lu7vJU3e4g/0PQ1ipH09NlBDcg=
+			tLl+dG39xamkTqIrnXOTd1i0Iz6gQZl/s10ziwy+6uM=
 			</data>
 		</dict>
 		<key>Headers/MFLanguageResult.h</key>
@@ -262,7 +262,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Y3s5rZluBRoif/74/8QCsCvJdVVsROaQv+3I2MmNBxk=
+			dTbAIwVEvpZTUK0TjqnIZVa96OxkUqpnJWU4D9oi7vU=
 			</data>
 		</dict>
 		<key>Headers/MFPlaceMetadataResult.h</key>
@@ -283,7 +283,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			dCekH97LVWl/dmkhi0Q5UEULaAw3TwtMTA1jz27xq3Y=
+			L8NL1aut+UK8P8AZKlF+lPOMXHGoUiyy8kkGY9HsqUI=
 			</data>
 		</dict>
 		<key>Headers/MFPlacesService.h</key>
@@ -388,7 +388,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			R17X2Obs34FEHz2el2SaNnyGyvlCCoh1wUgvKU8o+5Q=
+			hXQS9oCv9xRh7vVfoP1KrGJyZnGRQXn8RWd67+tF8ZU=
 			</data>
 		</dict>
 		<key>Headers/MFTextSearchParams.h</key>
@@ -430,7 +430,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			eXfKICIL4ZprT2N9lfzTzzew/cTcKpRPZ85nQfIkYSY=
+			EM8/FPReYeFrPdgpchPCuSwSsPuhv2y/RpPMipDQWfE=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
